@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import java.util.UUID;
 
 public class ColorRing {
-    public boolean sendColorRing(Color color, int ring){
+    public static boolean sendColorRing(Color color, int ring){
         IMqttClient publisher = Connections.connectPublisher();
 
         JSONObject json = new JSONObject();

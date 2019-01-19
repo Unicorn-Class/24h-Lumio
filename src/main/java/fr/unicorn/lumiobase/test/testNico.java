@@ -8,23 +8,29 @@ public class testNico {
 
     private static final Logger log = LogManager.getRootLogger();
 
-    static Color c0;
+   // static Color c0;
     static Color c1;
     static Color c2;
     static Color c3;
 
 
     public static void main(String[] args) throws NameAlreadyUsedException, InterruptedException {
-        c0 = Color.create("Noir", 0, 0, 0);
+        //c0 = Color.create("Noir", 0, 0, 0);
         c1 = Color.create("Rouge", 255, 0, 0);
         c2 = Color.create("Vert", 0, 255, 0);
         c3 = Color.create("Bleu", 0, 0, 255);
 
-        test1();
-        test2();
-        test3();
-        //test4();
 
+        log.fatal("============");
+        log.fatal(" DEBUT NICO");
+        log.fatal("============");
+        test1();
+        testLED();
+
+
+        log.fatal("==========");
+        log.fatal(" FIN TEST");
+        log.fatal("==========");
 
     }
 
@@ -39,7 +45,7 @@ public class testNico {
         log.fatal("=============");
 
         log.fatal("\tEteindre");
-        Boubou.TurnOffLumio("all", c0);
+        Boubou.TurnOffLumio("all");
         log.fatal("\tPause de 1sec");
         Thread.sleep(1000);
 
@@ -58,15 +64,13 @@ public class testNico {
         log.fatal("\tAnneau 2 couleur "+c2.getName());
         Boubou.SendColorLumio(c3, "all");
 
-    }
-    public static void test2() throws NameAlreadyUsedException, InterruptedException {
 
         log.fatal("===========");
         log.fatal(" TEST NICO");
         log.fatal("===========");
 
         log.fatal("\tEteindre");
-        Boubou.TurnOffLumio("all", c0);
+        Boubou.TurnOffLumio("all");
         log.fatal("\tPause de 1sec");
         Thread.sleep(1000);
 
@@ -75,17 +79,16 @@ public class testNico {
         ColorColumn.SendColorColumn(c1, 1);
 
         log.fatal("\tEteindre");
-        Boubou.TurnOffLumio("all", c0);
+        Boubou.TurnOffLumio("all");
         log.fatal("\tPause de 1sec");
         Thread.sleep(1000);
 
         log.fatal("\tLueur" + c2.getName() + " pendant 5 sec");
         Animation.glow(c2, 5000, 50);
-    }
 
-    public static void test3() throws NameAlreadyUsedException, InterruptedException {
-        log.fatal("\tEteindre");
-        Boubou.TurnOffLumio("all",c0);
+
+     log.fatal("\tEteindre");
+        Boubou.TurnOffLumio("all");
         log.fatal("\tPause de 1sec");
         Thread.sleep(1000);
 
@@ -93,14 +96,24 @@ public class testNico {
         Animation.rainbow();
 
 
-        log.fatal("==========");
-        log.fatal(" FIN TEST");
-        log.fatal("==========");
-
     }
 
-    public static void test4(){
+    public static void testLED() throws InterruptedException, NameAlreadyUsedException {
+        log.fatal("\tEteindre");
+        Boubou.TurnOffLumio("all");
+        log.fatal("\tPause de 1sec");
+        Thread.sleep(1000);
 
+        for(int i=0 ; i<13 ; i++){
+            log.fatal("\tAllumage "+i);
+            ColorPixel.SendColorPixel(c1, i, "all");
+
+            log.fatal("...");
+            Thread.sleep(250);
+
+            log.fatal("Eteindre");
+            Boubou.TurnOffLumio("all");
+        }
 
     }
 }

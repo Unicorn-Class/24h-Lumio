@@ -21,15 +21,14 @@ public class Animation {
         }
     }
 
-    public static void verticalWipe(Color rvb, int delay){
+    public static boolean verticalWipe(Color rvb, int delay){
         for(int line=0 ; line < ReadProperties.prop.getJSONObject("lumio").getInt("NB_LINE") ; line++){
             try {
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            //TODO uncomment this
-            //ColorLine.SendColorLine(rvb, Util.getIdLine(line));
+            ColorRing.sendColorRing(rvb, line);
         }
     }
 
