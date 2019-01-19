@@ -105,32 +105,6 @@ public class Animation {
             glow(color,time,delay,s);
         }
     }
-
-    public static boolean arrow(Color color, int delay, String id_laumio) throws NameAlreadyUsedException {
-        int pix1=6;
-        int pix2=0;
-        int pix3=12;
-        while(pix2!=3){
-            try {
-                Thread.sleep(delay);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                return false;
-            }
-            Boubou.TurnOffLumio(id_laumio);
-            ColorPixel.SendColorPixel(color,pix1,id_laumio);
-            ColorPixel.SendColorPixel(color,pix2,id_laumio);
-            ColorPixel.SendColorPixel(color,pix3,id_laumio);
-            pix1++;
-            pix2++;
-            pix3--;
-        }
-        return true;
-    }
-    public static void arrow(Color color, int delay, ArrayList<String> idsLaumio) throws NameAlreadyUsedException {
-        for (String s : idsLaumio) arrow(color,delay,s);
-    }
-
     public static boolean plus(int time, int delay) throws NameAlreadyUsedException {
         Color green=Color.create("Green",0,255,0);
         int compt = 0;
@@ -207,27 +181,54 @@ public class Animation {
         for (String s : idsLaumio) minus(time,delay,s);
     }
 
-    public static boolean rain(int time, int delay, String id_laumio) throws NameAlreadyUsedException,InterruptedException  {
+    public static void rain(int delay, String id_laumio) throws NameAlreadyUsedException,InterruptedException  {
         Color blue=Color.create("Blue",0,0,255);
+        Color grey=Color.create("Blue",105,105,105);
         Color white=Color.create("White",255,255,255);
-        int compt = 0;
-        while(compt<time) {
-            compt += delay;
             Boubou.TurnOffLumio(id_laumio);
-            ColorRing.sendColorRing(white, 2);
-            ColorRing.sendColorRing(blue, 1);
+            //sky
+            ColorRing.sendColorRing(grey, 2);
+            //First step of rain
+            ColorPixel.SendColorPixel(blue,1,id_laumio);
+            Thread.sleep(delay/2);
+            ColorPixel.SendColorPixel(blue,10,id_laumio);
+            Thread.sleep(delay/2);
+            ColorPixel.SendColorPixel(blue,4,id_laumio);
+            Thread.sleep(delay/2);
+            ColorPixel.SendColorPixel(blue,7,id_laumio);
             Thread.sleep(delay);
-            ColorRing.sendColorRing(blue, 0);
+
+            //second step of rain
+            ColorPixel.SendColorPixel(blue,0,id_laumio);
+            Thread.sleep(delay/2);
+            ColorPixel.SendColorPixel(blue,11,id_laumio);
+            Thread.sleep(delay/2);
+            ColorPixel.SendColorPixel(blue,5,id_laumio);
+            Thread.sleep(delay/2);
+            ColorPixel.SendColorPixel(blue,6,id_laumio);
             Thread.sleep(delay);
-            ColorRing.sendColorRing(white,0);
-            Thread.sleep(delay);
-            ColorRing.sendColorRing(white,1);
-        }
-        return true;
+
+            //Erase bottom
+            ColorPixel.SendColorPixel(white,0,id_laumio);
+            Thread.sleep(delay/2);
+            ColorPixel.SendColorPixel(white,11,id_laumio);
+            Thread.sleep(delay/2);
+            ColorPixel.SendColorPixel(white,5,id_laumio);
+            Thread.sleep(delay/2);
+            ColorPixel.SendColorPixel(white,6,id_laumio);
+
+            //Erase middle
+            ColorPixel.SendColorPixel(white,1,id_laumio);
+            Thread.sleep(delay/2);
+            ColorPixel.SendColorPixel(white,10,id_laumio);
+            Thread.sleep(delay/2);
+            ColorPixel.SendColorPixel(white,4,id_laumio);
+            Thread.sleep(delay/2);
+            ColorPixel.SendColorPixel(white,7,id_laumio);
     }
 
-    public static void rain(int time, int delay, ArrayList<String> idsLaumio) throws NameAlreadyUsedException, InterruptedException {
-        for (String s : idsLaumio) rain(time,delay,s);
+    public static void rain(int delay, ArrayList<String> idsLaumio) throws NameAlreadyUsedException, InterruptedException {
+        for (String s : idsLaumio) rain(delay,s);
     }
 
     public static boolean happy(int time, int delay, String id_laumio) throws NameAlreadyUsedException {
