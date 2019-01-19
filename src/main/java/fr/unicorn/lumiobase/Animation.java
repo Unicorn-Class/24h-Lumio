@@ -27,12 +27,10 @@ public class Animation {
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-                return false;
             }
             //TODO uncomment this
             //ColorLine.SendColorLine(rvb, Util.getIdLine(line));
         }
-        return true;
     }
 
     public static boolean rainbow(){
