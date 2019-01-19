@@ -13,26 +13,7 @@ public class ColorPixel {
     }
 
     public static boolean SendColorPixel(Color c, int idPixel){
-        String publisherId = UUID.randomUUID().toString();
-        IMqttClient publisher = null;
-        try {
-            publisher = new MqttClient("tcp://mpd.lan:1883",publisherId);
-        } catch (MqttException e) {
-            e.printStackTrace();
-            return false;
-        }
-
-        MqttConnectOptions options = new MqttConnectOptions();
-        options.setAutomaticReconnect(true);
-        options.setCleanSession(true);
-        options.setConnectionTimeout(10);
-        try {
-            publisher.connect(options);
-        } catch (MqttException e) {
-            e.printStackTrace();
-            return false;
-        }
-
+        IMqttClient publisher = Connections.connectPublisher(false);
         JSONObject json = new JSONObject();
         json.put("command", "set_pixel");
         json.put("led", idPixel);
