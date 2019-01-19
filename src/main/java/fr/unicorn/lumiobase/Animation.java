@@ -27,9 +27,11 @@ public class Animation {
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                return false;
             }
             ColorRing.sendColorRing(rvb, line);
         }
+        return true;
     }
 
     public static boolean rainbow(){

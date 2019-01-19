@@ -61,8 +61,8 @@ public class testNico {
         log.fatal("\tPause de 1sec");
         Thread.sleep(1000);
 
-        log.fatal("\tAnneau 2 couleur "+c2.getName());
-        Boubou.SendColorLumio(c3, "all");
+        log.fatal("\tAnneau 1 couleur "+c2.getName());
+        ColorRing.sendColorRing(c3, 1);
 
 
         log.fatal("===========");
