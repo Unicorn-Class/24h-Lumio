@@ -13,7 +13,7 @@ public class Connections {
         String publisherId = UUID.randomUUID().toString();
         IMqttClient publisher = null;
         try {
-            if (debug) publisher = new MqttClient("tcp://mpd.lan:1883",publisherId);
+            if (!debug) publisher = new MqttClient("tcp://mpd.lan:1883",publisherId);
             else publisher = new MqttClient("tcp://192.168.43.35:1883",publisherId);
         } catch (MqttException e) {
             e.printStackTrace();
