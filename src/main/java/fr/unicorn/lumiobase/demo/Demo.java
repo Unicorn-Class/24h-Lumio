@@ -25,7 +25,7 @@ public class Demo {
 
     }
 
-    private static void glowOn(int id, Color color) {
+    private static void glowOn(int id, Color color) throws NameAlreadyUsedException {
         Animation.glow(color, 7000, 100,grp.get(4).get(0));
     }
 
