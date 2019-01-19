@@ -106,7 +106,7 @@ public class testNico {
         //Boubou.TurnOffLumio("all");
 
         log.fatal("\tLueur" + c2.getName() + " pendant 0.5 sec");
-        Animation.glow(c3, 7000, 75);
+        //Animation.glow(c3, 7000, 75);
     }
 
     private static void testRing() throws NameAlreadyUsedException, InterruptedException {
@@ -246,7 +246,7 @@ public class testNico {
         Thread.sleep(1000);
 
         log.fatal("\tLueur" + c2.getName() + " pendant 5 sec");
-        Animation.glow(c2, 5000, 50);
+        //Animation.glow(c2, 5000, 50);
 
 
      log.fatal("\tEteindre");

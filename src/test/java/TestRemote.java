@@ -9,7 +9,7 @@ public class TestRemote {
 
     public static void main(String args[]) throws MqttException {
         IMqttClient client = connectPublisher();
-        Remote.initRemote(client);
+        //Remote.initRemote(client);
         MqttMessage message = new MqttMessage();
         message.setPayload("ON".getBytes());
         try {
