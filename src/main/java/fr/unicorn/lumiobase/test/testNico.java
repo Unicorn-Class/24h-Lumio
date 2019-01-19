@@ -1,6 +1,8 @@
 package fr.unicorn.lumiobase.test;
 
 import fr.unicorn.lumiobase.*;
+import fr.unicorn.lumiobase.sensors.Led;
+import fr.unicorn.lumiobase.sensors.Lumio;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.eclipse.paho.client.mqttv3.IMqttClient;
@@ -20,7 +22,7 @@ public class testNico {
     static Color c4;
 
 
-    public static void main(String[] args) throws NameAlreadyUsedException, InterruptedException {
+    public static void main(String[] args) throws NameAlreadyUsedException, InterruptedException, MqttException {
         //c0 = Color.create("Noir", 0, 0, 0);
         c1 = Color.create("Rouge", 255, 0, 0);
         c2 = Color.create("Vert", 0, 255, 0);
@@ -36,12 +38,15 @@ public class testNico {
         //testVictor();
         //testGlow();
         //t();
-        testIdLumio();
+        //testIdLumio();
        // testVictor2();
        // testRing();
        // rainbow();
 
+        log.fatal("Test Laumio");
+        testLumio();
 
+        DisplayLedForLaumio(c1,"Laumio_88813D");
 
         log.fatal("==========");
         log.fatal(" FIN TEST");
@@ -62,8 +67,22 @@ public class testNico {
         System.out.println("\""+id[8-1]+"\"");
         System.out.println("\""+id[3-1]+"\"");
     }*/
-
-
+    public static void DisplayLedForLaumio(Color c,String idLaumio) {
+        IMqttClient publisher = Connections.connectPublisher();
+        for (int i = 0; i < 12; i++) {
+            JSONObject json = new JSONObject();
+            json.put("command", "set_pixel");
+            json.put("led", i);
+            json.put("rgb", c.getRGB());
+            MqttMessage message = new MqttMessage();
+            message.setPayload(json.toString().getBytes());
+            try {
+                publisher.publish("laumio/"+idLaumio+"/json", message);
+            } catch (MqttException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     public static boolean rainbow(){
 
         IMqttClient publisher = Connections.connectPublisher();
@@ -106,7 +125,7 @@ public class testNico {
         //Boubou.TurnOffLumio("all");
 
         log.fatal("\tLueur" + c2.getName() + " pendant 0.5 sec");
-        //Animation.glow(c3, 7000, 75);
+        Animation.glow(c3, 7000, 75,"Laumio_88813D");
     }
 
     private static void testRing() throws NameAlreadyUsedException, InterruptedException {
@@ -131,6 +150,11 @@ public class testNico {
         Thread.sleep(500);
     }
 
+    private static void testLumio() throws NameAlreadyUsedException, InterruptedException, MqttException {
+        log.fatal("\tRecup info");
+        Lumio l=new Lumio();
+        System.out.println("l = " + l);
+    }
 
 
 
