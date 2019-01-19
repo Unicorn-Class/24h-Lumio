@@ -12,7 +12,7 @@ public class Boubou {
     }
 
     public static boolean SendColorLumio(Color c, String idLumio){
-        IMqttClient publisher = Connections.connectPublisher(true);
+        IMqttClient publisher = Connections.connectPublisher();
 
         JSONObject json = new JSONObject();
         json.put("command", "fill");

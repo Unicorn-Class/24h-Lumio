@@ -37,7 +37,7 @@ public class Animation {
 
     public static boolean rainbow(){
 
-        IMqttClient publisher = Connections.connectPublisher(true);
+        IMqttClient publisher = Connections.connectPublisher();
 
         JSONObject json = new JSONObject();
         json.put("command", "animate_rainbow");

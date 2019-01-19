@@ -10,7 +10,7 @@ public class ColorColumn {
 
     public static boolean SendColorColumn(Color c, int idColumn){
 
-        IMqttClient publisher = Connections.connectPublisher(true);
+        IMqttClient publisher = Connections.connectPublisher();
         JSONObject json = new JSONObject();
         json.put("command", "set_column");
         json.put("led", idColumn);

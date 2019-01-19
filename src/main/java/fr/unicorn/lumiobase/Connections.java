@@ -9,11 +9,11 @@ import java.util.UUID;
 
 public class Connections {
 
-    public static IMqttClient connectPublisher(boolean debug) {
+    public static IMqttClient connectPublisher() {
         String publisherId = UUID.randomUUID().toString();
         IMqttClient publisher = null;
         try {
-            if (!debug) publisher = new MqttClient("tcp://mpd.lan:1883",publisherId);
+            if (!Util.DEBUG) publisher = new MqttClient("tcp://mpd.lan:1883",publisherId);
             else publisher = new MqttClient("tcp://192.168.43.35:1883",publisherId);
         } catch (MqttException e) {
             e.printStackTrace();

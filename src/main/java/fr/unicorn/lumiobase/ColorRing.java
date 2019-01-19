@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class ColorRing {
     public boolean sendColorRing(Color color, int ring){
-        IMqttClient publisher = Connections.connectPublisher(true);
+        IMqttClient publisher = Connections.connectPublisher();
 
         JSONObject json = new JSONObject();
         json.put("command", "set_ring");

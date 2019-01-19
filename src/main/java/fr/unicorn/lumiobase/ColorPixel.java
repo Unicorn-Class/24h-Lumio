@@ -13,7 +13,7 @@ public class ColorPixel {
 
 
     public static void SendColorPixel(Color c, int idPixel, String idLumio){
-        IMqttClient publisher = Connections.connectPublisher(false);
+        IMqttClient publisher = Connections.connectPublisher();
         JSONObject json = new JSONObject();
         json.put("command", "set_pixel");
         json.put("led", idPixel);

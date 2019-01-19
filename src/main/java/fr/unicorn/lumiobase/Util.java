@@ -8,6 +8,8 @@ public class Util {
     private static int[] idColumn = {0,1,2,3};
     private static int[] idLine = {0,1,2};
 
+    public static boolean DEBUG = false;
+
 
     public static int getIdPixel(int line, int column){
         if(line>=0 && line<idLine.length && column>=0 && column<idColumn.length) {
