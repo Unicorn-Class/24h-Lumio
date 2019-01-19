@@ -4,6 +4,7 @@ import fr.unicorn.lumiobase.*;
 
 public class testNico {
 
+    private static final Logger log = LogManager.getRootLogger();
     public static void main(String[] args) throws NameAlreadyUsedException, InterruptedException {
         //log.info("Data transmisssion finished !");
 
