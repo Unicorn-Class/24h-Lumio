@@ -1,4 +1,6 @@
-package fr.unicorn.lumiobase;
+package fr.unicorn.lumiobase.sensors;
+
+import fr.unicorn.lumiobase.Led;
 
 import java.util.ArrayList;
 
