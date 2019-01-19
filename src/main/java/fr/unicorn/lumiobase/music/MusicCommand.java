@@ -1,5 +1,6 @@
 package fr.unicorn.lumiobase.music;
 
+import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
@@ -39,7 +40,7 @@ public class MusicCommand {
     }
 
 
-    public void initMusic(MqttClient client) throws MqttException {
+    public void initMusic(IMqttClient client) throws MqttException {
         client.subscribe("music/control/getstate", (topic, msg) -> {
             byte[] payload = msg.getPayload();
 
