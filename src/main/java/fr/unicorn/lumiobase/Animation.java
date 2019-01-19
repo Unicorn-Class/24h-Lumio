@@ -4,7 +4,6 @@ import org.eclipse.paho.client.mqttv3.*;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class Animation {
 
@@ -17,23 +16,11 @@ public class Animation {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                //ColorPixel.SendColorPixel(rvb, Util.getIdPixel(line, column));
+                //Light.TurnOnPixel(rvb, Util.getIdPixel(line, column));
             }
         }
     }
 
-    public static boolean verticalWipe(Color rvb, int delay){
-        for(int line=0 ; line < ReadProperties.prop.getJSONObject("lumio").getInt("NB_LINE") ; line++){
-            try {
-                Thread.sleep(delay);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                return false;
-            }
-            ColorRing.sendColorRing(rvb, line);
-        }
-        return true;
-    }
 
     public static boolean verticalWipe(Color rvb, int delay, String idLaumio){
         for(int line=0 ; line < ReadProperties.prop.getJSONObject("lumio").getInt("NB_LINE") ; line++){
@@ -43,7 +30,7 @@ public class Animation {
                 e.printStackTrace();
                 return false;
             }
-            ColorRing.sendColorRing(rvb, line,idLaumio);
+            Light.TurnOnRing(rvb, line,idLaumio);
         }
         return true;
     }
@@ -84,7 +71,7 @@ public class Animation {
                 e.printStackTrace();
                 return false;
             }
-            Boubou.SendColorLumio(color, idLaumio);
+            Light.TurnOnAllLumio(color, idLaumio);
 
             if(reduce){
                 if(!color.reduce(vr, vg, vb)){
@@ -134,9 +121,9 @@ public class Animation {
                 e.printStackTrace();
                 return false;
             }
-            ColorRing.sendColorRing(green, 1,idLaumio);
-            ColorColumn.SendColorColumn(green,1,idLaumio);
-            ColorColumn.SendColorColumn(green,2,idLaumio);
+            Light.TurnOnRing(green, 1,idLaumio);
+            Light.TurnOnColumn(green,1,idLaumio);
+            Light.TurnOnColumn(green,2,idLaumio);
         }
         return true;
     }
@@ -145,21 +132,6 @@ public class Animation {
         for (String s : idsLaumio) plus(time,delay,s);
     }
 
-    public static boolean minus(int time, int delay ) throws NameAlreadyUsedException {
-        Color red=Color.create("Red",255,0,0);
-        int compt = 0;
-        while(compt<time) {
-            compt += delay;
-            try {
-                Thread.sleep(delay);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                return false;
-            }
-            ColorRing.sendColorRing(red, 1);
-        }
-        return true;
-    }
 
     public static boolean minus(int time, int delay, String idLaumio ) throws NameAlreadyUsedException {
         Color red=Color.create("Red",255,0,0);
@@ -172,7 +144,7 @@ public class Animation {
                 e.printStackTrace();
                 return false;
             }
-            ColorRing.sendColorRing(red, 1,idLaumio);
+            Light.TurnOnRing(red, 1,idLaumio);
         }
         return true;
     }
@@ -242,12 +214,12 @@ public class Animation {
                 e.printStackTrace();
                 return false;
             }
-            Boubou.TurnOffLumio(id_laumio);
-            ColorPixel.SendColorPixel(green,2,id_laumio);
-            ColorPixel.SendColorPixel(green,3,id_laumio);
-            ColorPixel.SendColorPixel(green,1,id_laumio);
-            ColorPixel.SendColorPixel(green,12,id_laumio);
-            ColorPixel.SendColorPixel(green,5,id_laumio);
+            Light.TurnOffLumio(id_laumio);
+            Light.TurnOnPixel(green,2,id_laumio);
+            Light.TurnOnPixel(green,3,id_laumio);
+            Light.TurnOnPixel(green,1,id_laumio);
+            Light.TurnOnPixel(green,12,id_laumio);
+            Light.TurnOnPixel(green,5,id_laumio);
 
         }
         return true;
@@ -268,12 +240,12 @@ public class Animation {
                 e.printStackTrace();
                 return false;
             }
-            Boubou.TurnOffLumio(id_laumio);
-            ColorPixel.SendColorPixel(red,2,id_laumio);
-            ColorPixel.SendColorPixel(red,3,id_laumio);
-            ColorPixel.SendColorPixel(red,0,id_laumio);
-            ColorPixel.SendColorPixel(red,11,id_laumio);
-            ColorPixel.SendColorPixel(red,5,id_laumio);
+            Light.TurnOffLumio(id_laumio);
+            Light.TurnOnPixel(red,2,id_laumio);
+            Light.TurnOnPixel(red,3,id_laumio);
+            Light.TurnOnPixel(red,0,id_laumio);
+            Light.TurnOnPixel(red,11,id_laumio);
+            Light.TurnOnPixel(red,5,id_laumio);
 
         }
         return true;
@@ -284,11 +256,11 @@ public class Animation {
     }
 
     public static boolean sequence(Color c,int nb_led,int delay, String id_laumio) throws NameAlreadyUsedException {
-        Boubou.TurnOffLumio(id_laumio);
+        Light.TurnOffLumio(id_laumio);
         for(int compte=0;compte<nb_led;compte++) {
-            ColorPixel.SendColorPixel(c,compte,id_laumio);
+            Light.TurnOnPixel(c,compte,id_laumio);
             if(compte>1) {
-                ColorPixel.TurnOffLights(compte - 1, id_laumio);
+                Light.TurnOffPixel(compte - 1, id_laumio);
             }
             try {
                 Thread.sleep(delay);
