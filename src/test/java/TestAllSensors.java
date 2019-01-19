@@ -8,12 +8,12 @@ public class TestAllSensors {
 
     public static void main(String args[]) throws MqttException {
         IMqttClient client = Connections.connectPublisher();
-        Remote.initRemote(client);
+       /* Remote.initRemote(client);
         Presence.initPresence(client);
         Athmospheric.initAtmospheric(client);
         Distance.initDistance(client);
         for (int i = 1; i < 5; i++) {
             CapteurPushButton.tappetCapteur(client,new Led(i,true), new PushButton(i));
-        }
+        }*/
     }
 }

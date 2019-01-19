@@ -7,7 +7,7 @@ public class CapteurPushButton {
     private IMqttClient client;
 
 
-    public static void tappetCapteur(IMqttClient client, Led led, PushButton pb) throws MqttException {
+    public void tappetCapteur(IMqttClient client, Led led, PushButton pb) throws MqttException {
 
         client.subscribe("capteur_bp/status", (topic, msg) -> {
             byte[] payload = msg.getPayload();
@@ -47,7 +47,7 @@ public class CapteurPushButton {
             byte[] payload = msg.getPayload();
             led.setNum(pb.getNum());//change state of associated led
             String str = new String(payload);
-            System.out.println(str);
+            //System.out.println(str);
             if(str.equals("ON")){led.changeState();}
         });
 

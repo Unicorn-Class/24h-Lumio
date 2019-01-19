@@ -4,16 +4,16 @@ import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 public class Distance {
-    public static boolean online = false;
+    public boolean online = false;
 
-    public static float distance = -1;
+    public float distance = -1;
 
-    public static void initDistance(IMqttClient client) throws MqttException {
+    public void initDistance(IMqttClient client) throws MqttException {
         client.subscribe("distance/value", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
             distance = Float.parseFloat(str);
-            System.out.println("distance = " + distance);
+            //System.out.println("distance = " + distance);
         });
         client.subscribe("distance/status", (topic, msg) -> {
             byte[] payload = msg.getPayload();
@@ -23,7 +23,7 @@ public class Distance {
         });
     }
 
-    public static void distanceStatus(boolean state) {
+    public  void distanceStatus(boolean state) {
         if (state) System.out.println("Presence : Online");
         else {
             distance = -1;

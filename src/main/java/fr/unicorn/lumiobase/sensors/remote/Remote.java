@@ -9,7 +9,7 @@ public class Remote{
 
     private static final Logger log = LogManager.getRootLogger();
 
-    public static void initRemote(IMqttClient client) throws MqttException {
+    public void initRemote(IMqttClient client) throws MqttException {
         client.subscribe("remote/power/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
