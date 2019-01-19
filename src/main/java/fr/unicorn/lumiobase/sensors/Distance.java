@@ -13,6 +13,7 @@ public class Distance {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
             distance = Float.parseFloat(str);
+            System.out.println("distance = " + distance);
         });
         client.subscribe("distance/status", (topic, msg) -> {
             byte[] payload = msg.getPayload();

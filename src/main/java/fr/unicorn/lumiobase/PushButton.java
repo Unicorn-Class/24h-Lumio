@@ -1,5 +1,7 @@
 package fr.unicorn.lumiobase;
 
+import fr.unicorn.lumiobase.Led;
+
 import java.util.ArrayList;
 
 public class PushButton {

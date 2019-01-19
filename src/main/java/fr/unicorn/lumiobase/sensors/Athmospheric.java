@@ -16,21 +16,25 @@ public class Athmospheric {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
             temperature = Float.parseFloat(str);
+            System.out.println("temperature = " + temperature);
         });
         client.subscribe("atmosphere/pression", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
             pressure = Float.parseFloat(str);
+            System.out.println("pressure = " + pressure);
         });
         client.subscribe("atmosphere/humidite", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
             humidity = Float.parseFloat(str);
+            System.out.println("humidity = " + humidity);
         });
         client.subscribe("atmosphere/humidite_absolue", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
             absHumidity = Float.parseFloat(str);
+            System.out.println("absHumidity = " + absHumidity);
         });
         client.subscribe("atmosphere/status", (topic, msg) -> {
             byte[] payload = msg.getPayload();
