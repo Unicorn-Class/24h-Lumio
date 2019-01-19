@@ -63,6 +63,7 @@ public class Animation {
                 return false;
             }
             Boubou.SendColorLumio(color, "all");
+
             if(reduce){
                 if(!color.reduce()){
                     reduce = false;
@@ -75,5 +76,127 @@ public class Animation {
         }
         return true;
     }
+    public static boolean arrow(Color color, int time, int delay, String id_laumio) throws NameAlreadyUsedException {
+        int compt = 0;
+        int pix1[0,0];
+        int pix2[1,1];
+        int pix3[0,2];
+        while(compt<time){
+            compt+=delay;
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            Boubou.TurnOffLumio(id_laumio);
+            ColorPixel.SendColorPixel(color,Util.getIdPixel(pix1[0],pix1[1]),id_laumio);
+            ColorPixel.SendColorPixel(color,Util.getIdPixel(pix2[0],pix2[1]),id_laumio);
+            ColorPixel.SendColorPixel(color,Util.getIdPixel(pix3[0],pix3[1]),id_laumio);
+            pix1[1]++;
+            pix2[1]++;
+            pix3[1]++;
+        }
+        return true;
+    }
+
+    public static boolean plus(int time, int delay) throws NameAlreadyUsedException {
+        Color green=Color.create("Green",0,255,0);
+        int compt = 0;
+        while(compt<time) {
+            compt += delay;
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            ColorRing.sendColorRing(green, 1);
+            ColorColumn.SendColorColumn(green,1);
+            ColorColumn.SendColorColumn(green,2);
+        }
+        return true;
+    }
+
+    public static boolean minus(int time, int delay, ) throws NameAlreadyUsedException {
+        Color red=Color.create("Red",255,0,0);
+        int compt = 0;
+        while(compt<time) {
+            compt += delay;
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            ColorRing.sendColorRing(red, 1);
+        }
+        return true;
+    }
+
+    public static boolean rain(int time, int delay, String id_laumio) throws NameAlreadyUsedException {
+        Color blue=Color.create("Blue",0,0,255);
+        Color white=Color.create("Blue",255,255,255);
+        int compt = 0;
+        while(compt<time) {
+            compt += delay;
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            Boubou.TurnOffLumio(id_laumio);
+            ColorRing.sendColorRing(white, 0);
+            ColorPixel.SendColorPixel(blue,Util.getIdPixel(1,1),id_laumio);
+            ColorPixel.SendColorPixel(blue,Util.getIdPixel(1,2),id_laumio);
+            ColorPixel.SendColorPixel(blue,Util.getIdPixel(2,1),id_laumio);
+            ColorPixel.SendColorPixel(blue,Util.getIdPixel(2,2),id_laumio);
+        }
+        return true;
+    }
+
+    public static boolean happy(int time, int delay, String id_laumio) throws NameAlreadyUsedException {
+        Color green=Color.create("Green",0,255,0);
+        int compt = 0;
+        while(compt<time) {
+            compt += delay;
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            Boubou.TurnOffLumio(id_laumio);
+            ColorPixel.SendColorPixel(green,Util.getIdPixel(1,0),id_laumio);
+            ColorPixel.SendColorPixel(green,Util.getIdPixel(2,1),id_laumio);
+            ColorPixel.SendColorPixel(green,Util.getIdPixel(2,2),id_laumio);
+            ColorPixel.SendColorPixel(green,Util.getIdPixel(1,3),id_laumio);
+
+        }
+        return true;
+    }
+
+    public static boolean sad(int time, int delay, String id_laumio) throws NameAlreadyUsedException {
+        Color red=Color.create("Red",255,0,0);
+        int compt = 0;
+        while(compt<time) {
+            compt += delay;
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            Boubou.TurnOffLumio(id_laumio);
+            ColorPixel.SendColorPixel(red,Util.getIdPixel(0,2),id_laumio);
+            ColorPixel.SendColorPixel(red,Util.getIdPixel(1,1),id_laumio);
+            ColorPixel.SendColorPixel(red,Util.getIdPixel(1,2),id_laumio);
+            ColorPixel.SendColorPixel(red,Util.getIdPixel(2,3),id_laumio);
+
+        }
+        return true;
+    }
+
 
 }
