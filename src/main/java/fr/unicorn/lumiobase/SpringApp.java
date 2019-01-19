@@ -23,6 +23,8 @@ public class SpringApp {
     public static ArrayList<Integer> presenceHistory = new ArrayList<Integer>();
 
     public static void main(String args[]) throws MqttException {
+
+        SpringApplication.run(SpringApp.class, args);
         Lumio l = new Lumio();
 
         ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
@@ -37,8 +39,6 @@ public class SpringApp {
                 presenceHistory.add(Presence.presence ? 1 : 0);
             }
         }, 0, 5, TimeUnit.MINUTES);
-
-        SpringApplication.run(SpringApp.class, args);
     }
 
 }

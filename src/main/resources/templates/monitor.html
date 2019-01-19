@@ -27,6 +27,7 @@
     <div class="card teal lighten-2">
         <div class="card-content black-text">
             <span class="card-title">Presence</span>
+            <canvas id="presenceChart"></canvas>
         </div>
     </div>
     <div class="card teal lighten-2 remote">
@@ -71,9 +72,9 @@
     <script src="js/Chart.bundle.min.js"></script>
     <script>
         /*<![CDATA[*/
-        var ctx = document.getElementById("myChart").getContext('2d');
+        var ctx = document.getElementById("presenceChart").getContext('2d');
         var temperatureChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
                 datasets: [{
