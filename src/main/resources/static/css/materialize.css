@@ -27,7 +27,7 @@
   color: #f8c1c3 !important;
 }
 
-.materialize-red.lighten-3 {
+.materialize-red.lighten-5 {
   background-color: #f3989b !important;
 }
 
@@ -35,7 +35,7 @@
   color: #f3989b !important;
 }
 
-.materialize-red.lighten-2 {
+.materialize-red.lighten-5 {
   background-color: #ee6e73 !important;
 }
 
@@ -107,7 +107,7 @@
   color: #FFCDD2 !important;
 }
 
-.red.lighten-3 {
+.red.lighten-5 {
   background-color: #EF9A9A !important;
 }
 
@@ -115,7 +115,7 @@
   color: #EF9A9A !important;
 }
 
-.red.lighten-2 {
+.red.lighten-5 {
   background-color: #E57373 !important;
 }
 
@@ -219,7 +219,7 @@
   color: #f8bbd0 !important;
 }
 
-.pink.lighten-3 {
+.pink.lighten-5 {
   background-color: #f48fb1 !important;
 }
 
@@ -227,7 +227,7 @@
   color: #f48fb1 !important;
 }
 
-.pink.lighten-2 {
+.pink.lighten-5 {
   background-color: #f06292 !important;
 }
 
@@ -331,7 +331,7 @@
   color: #e1bee7 !important;
 }
 
-.purple.lighten-3 {
+.purple.lighten-5 {
   background-color: #ce93d8 !important;
 }
 
@@ -339,7 +339,7 @@
   color: #ce93d8 !important;
 }
 
-.purple.lighten-2 {
+.purple.lighten-5 {
   background-color: #ba68c8 !important;
 }
 
@@ -443,7 +443,7 @@
   color: #d1c4e9 !important;
 }
 
-.deep-purple.lighten-3 {
+.deep-purple.lighten-5 {
   background-color: #b39ddb !important;
 }
 
@@ -451,7 +451,7 @@
   color: #b39ddb !important;
 }
 
-.deep-purple.lighten-2 {
+.deep-purple.lighten-5 {
   background-color: #9575cd !important;
 }
 
@@ -555,7 +555,7 @@
   color: #c5cae9 !important;
 }
 
-.indigo.lighten-3 {
+.indigo.lighten-5 {
   background-color: #9fa8da !important;
 }
 
@@ -563,7 +563,7 @@
   color: #9fa8da !important;
 }
 
-.indigo.lighten-2 {
+.indigo.lighten-5 {
   background-color: #7986cb !important;
 }
 
@@ -667,7 +667,7 @@
   color: #BBDEFB !important;
 }
 
-.blue.lighten-3 {
+.blue.lighten-5 {
   background-color: #90CAF9 !important;
 }
 
@@ -675,7 +675,7 @@
   color: #90CAF9 !important;
 }
 
-.blue.lighten-2 {
+.blue.lighten-5 {
   background-color: #64B5F6 !important;
 }
 
@@ -779,7 +779,7 @@
   color: #b3e5fc !important;
 }
 
-.light-blue.lighten-3 {
+.light-blue.lighten-5 {
   background-color: #81d4fa !important;
 }
 
@@ -787,7 +787,7 @@
   color: #81d4fa !important;
 }
 
-.light-blue.lighten-2 {
+.light-blue.lighten-5 {
   background-color: #4fc3f7 !important;
 }
 
@@ -891,7 +891,7 @@
   color: #b2ebf2 !important;
 }
 
-.cyan.lighten-3 {
+.cyan.lighten-5 {
   background-color: #80deea !important;
 }
 
@@ -899,7 +899,7 @@
   color: #80deea !important;
 }
 
-.cyan.lighten-2 {
+.cyan.lighten-5 {
   background-color: #4dd0e1 !important;
 }
 
@@ -1003,7 +1003,7 @@
   color: #b2dfdb !important;
 }
 
-.teal.lighten-3 {
+.teal.lighten-5 {
   background-color: #80cbc4 !important;
 }
 
@@ -1011,7 +1011,7 @@
   color: #80cbc4 !important;
 }
 
-.teal.lighten-2 {
+.teal.lighten-5 {
   background-color: #4db6ac !important;
 }
 
@@ -1115,7 +1115,7 @@
   color: #C8E6C9 !important;
 }
 
-.green.lighten-3 {
+.green.lighten-5 {
   background-color: #A5D6A7 !important;
 }
 
@@ -1123,7 +1123,7 @@
   color: #A5D6A7 !important;
 }
 
-.green.lighten-2 {
+.green.lighten-5 {
   background-color: #81C784 !important;
 }
 
@@ -1227,7 +1227,7 @@
   color: #dcedc8 !important;
 }
 
-.light-green.lighten-3 {
+.light-green.lighten-5 {
   background-color: #c5e1a5 !important;
 }
 
@@ -1235,7 +1235,7 @@
   color: #c5e1a5 !important;
 }
 
-.light-green.lighten-2 {
+.light-green.lighten-5 {
   background-color: #aed581 !important;
 }
 
@@ -1339,7 +1339,7 @@
   color: #f0f4c3 !important;
 }
 
-.lime.lighten-3 {
+.lime.lighten-5 {
   background-color: #e6ee9c !important;
 }
 
@@ -1347,7 +1347,7 @@
   color: #e6ee9c !important;
 }
 
-.lime.lighten-2 {
+.lime.lighten-5 {
   background-color: #dce775 !important;
 }
 
@@ -1451,7 +1451,7 @@
   color: #fff9c4 !important;
 }
 
-.yellow.lighten-3 {
+.yellow.lighten-5 {
   background-color: #fff59d !important;
 }
 
@@ -1459,7 +1459,7 @@
   color: #fff59d !important;
 }
 
-.yellow.lighten-2 {
+.yellow.lighten-5 {
   background-color: #fff176 !important;
 }
 
@@ -1563,7 +1563,7 @@
   color: #ffecb3 !important;
 }
 
-.amber.lighten-3 {
+.amber.lighten-5 {
   background-color: #ffe082 !important;
 }
 
@@ -1571,7 +1571,7 @@
   color: #ffe082 !important;
 }
 
-.amber.lighten-2 {
+.amber.lighten-5 {
   background-color: #ffd54f !important;
 }
 
@@ -1675,7 +1675,7 @@
   color: #ffe0b2 !important;
 }
 
-.orange.lighten-3 {
+.orange.lighten-5 {
   background-color: #ffcc80 !important;
 }
 
@@ -1683,7 +1683,7 @@
   color: #ffcc80 !important;
 }
 
-.orange.lighten-2 {
+.orange.lighten-5 {
   background-color: #ffb74d !important;
 }
 
@@ -1787,7 +1787,7 @@
   color: #ffccbc !important;
 }
 
-.deep-orange.lighten-3 {
+.deep-orange.lighten-5 {
   background-color: #ffab91 !important;
 }
 
@@ -1795,7 +1795,7 @@
   color: #ffab91 !important;
 }
 
-.deep-orange.lighten-2 {
+.deep-orange.lighten-5 {
   background-color: #ff8a65 !important;
 }
 
@@ -1899,7 +1899,7 @@
   color: #d7ccc8 !important;
 }
 
-.brown.lighten-3 {
+.brown.lighten-5 {
   background-color: #bcaaa4 !important;
 }
 
@@ -1907,7 +1907,7 @@
   color: #bcaaa4 !important;
 }
 
-.brown.lighten-2 {
+.brown.lighten-5 {
   background-color: #a1887f !important;
 }
 
@@ -1979,7 +1979,7 @@
   color: #cfd8dc !important;
 }
 
-.blue-grey.lighten-3 {
+.blue-grey.lighten-5 {
   background-color: #b0bec5 !important;
 }
 
@@ -1987,7 +1987,7 @@
   color: #b0bec5 !important;
 }
 
-.blue-grey.lighten-2 {
+.blue-grey.lighten-5 {
   background-color: #90a4ae !important;
 }
 
@@ -2059,7 +2059,7 @@
   color: #f5f5f5 !important;
 }
 
-.grey.lighten-3 {
+.grey.lighten-5 {
   background-color: #eeeeee !important;
 }
 
@@ -2067,7 +2067,7 @@
   color: #eeeeee !important;
 }
 
-.grey.lighten-2 {
+.grey.lighten-5 {
   background-color: #e0e0e0 !important;
 }
 
@@ -8486,10 +8486,19 @@ input[type=range]::-ms-thumb {
   visibility: visible;
   -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
           animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-  -webkit-transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s;
-  transition: opacity .3s, transform .3s, visibility 0s 1s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s 1s,
+ -webkit-transform .3s;
 }
 
 .tap-target {
@@ -8542,10 +8551,19 @@ input[type=range]::-ms-thumb {
 
 .tap-target-wave::after {
   visibility: hidden;
-  -webkit-transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, visibility 0s, -webkit-transform .3s;
-  transition: opacity .3s, transform .3s, visibility 0s;
-  transition: opacity .3s, transform .3s, visibility 0s, -webkit-transform .3s;
+  -webkit-transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ visibility 0s,
+ -webkit-transform .3s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s;
+  transition: opacity .3s,
+ transform .3s,
+ visibility 0s,
+ -webkit-transform .3s;
   z-index: -1;
 }
 
