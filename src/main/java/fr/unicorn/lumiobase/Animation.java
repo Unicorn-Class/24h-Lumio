@@ -78,9 +78,9 @@ public class Animation {
     }
     public static boolean arrow(Color color, int time, int delay, String id_laumio) throws NameAlreadyUsedException {
         int compt = 0;
-        int pix1[0,0];
-        int pix2[1,1];
-        int pix3[0,2];
+        int pix1[]={0,0};
+        int pix2[]={1,1};
+        int pix3[]={0,2};
         while(compt<time){
             compt+=delay;
             try {
