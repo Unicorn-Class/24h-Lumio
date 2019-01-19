@@ -1,8 +1,4 @@
-package fr.unicorn.lumiobase;
-
-import fr.unicorn.lumiobase.Led;
-
-import java.util.ArrayList;
+package fr.unicorn.lumiobase.sensors;
 
 public class PushButton {
     private int num;
@@ -15,6 +11,10 @@ public class PushButton {
 
     public void setNum(int num) {
         this.num = num;
+    }
+
+    public PushButton(int i) {
+        num = i;
     }
 
     public boolean verif(){

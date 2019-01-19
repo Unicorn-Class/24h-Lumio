@@ -1,4 +1,4 @@
-package fr.unicorn.lumiobase;
+package fr.unicorn.lumiobase.sensors;
 
 public class Led {
     private boolean state;
