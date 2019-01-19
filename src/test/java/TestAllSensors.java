@@ -7,7 +7,8 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 public class TestAllSensors {
 
     public static void main(String args[]) throws MqttException {
-        IMqttClient client = Connections.connectPublisher();
+        //IMqttClient client = Connections.connectPublisher();
+        Lumio l=new Lumio();
        /* Remote.initRemote(client);
         Presence.initPresence(client);
         Athmospheric.initAtmospheric(client);
