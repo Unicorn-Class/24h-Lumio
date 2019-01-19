@@ -53,6 +53,10 @@ public class Lumio {
 
     IMqttClient client = Connections.connectPublisher();
     public Lumio() throws MqttException{
+        this.distance=new Distance();
+        this.ath=new Athmospheric();
+        this.remote=new Remote();
+        this.capteurPushButton=new CapteurPushButton();
         this.distance.initDistance(client);
         this.ath.initAtmospheric(client);
         this.remote.initRemote(client);
