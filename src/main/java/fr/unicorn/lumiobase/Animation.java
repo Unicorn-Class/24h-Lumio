@@ -99,9 +99,38 @@ public class Animation {
         return true;
     }
 
-    public static void glow(Color color, int time, int delay, ArrayList<String> idsLaumio) throws NameAlreadyUsedException {
-        for (String s : idsLaumio) glow(color,time,delay,s);
+    public static boolean glow(Color color, int time, int delay, String idLaumio){
+        int vr = color.getR()/10;
+        int vg = color.getG()/10;
+        int vb = color.getB()/10;
+        int compt = 0;
+        boolean reduce = true;
+        while(compt<time){
+            compt+=delay;
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            Boubou.SendColorLumio(color,idLaumio);
+
+            if(reduce){
+                if(!color.reduce(vr, vg, vb)){
+                    reduce = false;
+                }
+            }else{
+                if(!color.increase(vr, vg, vb)){
+                    reduce = true;
+                }
+            }
+        }
+        return true;
     }
+
+   /* public static void glow(Color color, int time, int delay, ArrayList<String> idsLaumio){
+        for (String s : idsLaumio) glow(color,time,delay,s);
+    }*/
 
     public static boolean arrow(Color color, int time, int delay, String id_laumio) throws NameAlreadyUsedException {
         int compt = 0;
