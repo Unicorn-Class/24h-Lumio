@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public class ColorPixel {
 
-    public static void main(String args[]){
+    public static void main(String args[]) throws NameAlreadyUsedException {
         SendColorPixel(Color.create("Bizarre",255,255,255),2);
         return;
     }
