@@ -45,7 +45,7 @@ public class ColorColumn {
         return true;
     }
 
-    public static boolean SendColorColumn(Color c, int idColumn, ArrayList<String> idsLumio){
+    public static void SendColorColumn(Color c, int idColumn, ArrayList<String> idsLumio){
         for (String s : idsLumio) SendColorColumn(c, idColumn, s);
     }
 }

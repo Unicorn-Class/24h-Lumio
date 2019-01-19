@@ -6,7 +6,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.UUID;
+
 
 public class ColorRing {
     public static boolean sendColorRing(Color color, int ring){
@@ -44,7 +44,7 @@ public class ColorRing {
         return true;
     }
 
-    public static boolean SendColorRing(Color c, int idColumn, ArrayList<String> idsLaumio){
-        for (String s : idsLaumio) SendColorRing(c, idColumn, s);
+    public static void sendColorRing(Color c, int idColumn, ArrayList<String> idsLaumio){
+        for (String s : idsLaumio) sendColorRing(c, idColumn, s);
     }
 }
