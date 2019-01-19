@@ -1,9 +1,13 @@
 package fr.unicorn.lumiobase.sensors.remote;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 public class Remote{
+
+    private static final Logger log = LogManager.getRootLogger();
 
     public static void initRemote(IMqttClient client) throws MqttException {
         client.subscribe("remote/power/state", (topic, msg) -> {
@@ -115,7 +119,7 @@ public class Remote{
     }
 
     public static void btnPushed(RemoteValues val) {
-        System.out.println();
+        log.info("BTN PUSHED : "+val.toString());
         switch (val) {
 
         }
