@@ -1,7 +1,7 @@
 package fr.unicorn.lumiobase.demo;
 
-import fr.unicorn.lumiobase.Boubou;
 import fr.unicorn.lumiobase.Color;
+import fr.unicorn.lumiobase.Light;
 import fr.unicorn.lumiobase.NameAlreadyUsedException;
 import fr.unicorn.lumiobase.ReadProperties;
 
@@ -18,7 +18,7 @@ public class Test {
     public static void main(String[] args) throws NameAlreadyUsedException {
         init();
 
-       // Boubou.SendColorLumio(colorP[persW-1],idFinal);
+       // Light.TurnOnAllLumio(colorP[persW-1],idFinal);
         Scanner sc = new Scanner(System.in);
         int x, y;
         do{
@@ -34,11 +34,11 @@ public class Test {
 
         }while(verifEnd());
 
-        Boubou.SendColorLumio(colorP[persW-1],idFinal);
+        Light.TurnOnAllLumio(colorP[persW-1],idFinal);
     }
 
     private static void display(int x, int y) {
-        Boubou.SendColorLumio(colorP[pers-1],gridId[x][y]);
+        Light.TurnOnAllLumio(colorP[pers-1],gridId[x][y]);
     }
 
     private static boolean verifTurn(int x, int y) {
@@ -115,11 +115,11 @@ public class Test {
 
         idFinal = ReadProperties.prop.getJSONArray("idLaumio").getString(10);
 
-        Boubou.TurnOffLumio("all");
+        Light.TurnOffLumio("all");
 
         for(int i=0 ; i<3 ; i++){
             for(int j=0 ; j<3 ; j++){
-                Boubou.SendColorLumio(white,gridId[i][j]);
+                Light.TurnOnAllLumio(white,gridId[i][j]);
             }
         }
 

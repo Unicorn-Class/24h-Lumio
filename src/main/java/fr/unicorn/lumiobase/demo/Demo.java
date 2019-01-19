@@ -32,7 +32,7 @@ public class Demo {
     private static void turnOnOneGroup(int i, Color color) throws InterruptedException {
 
         for(String id : grp.get(i)){
-            Boubou.SendColorLumio(color,id);
+            Light.TurnOnAllLumio(color,id);
         }
         Thread.sleep(500);
     }
@@ -41,7 +41,7 @@ public class Demo {
     private static void shutdownAllGroup() throws NameAlreadyUsedException, InterruptedException {
         for(ArrayList<String> list : grp){
             for(String id : list){
-                Boubou.TurnOffLumio(id);
+                Light.TurnOffLumio(id);
             }
             Thread.sleep(500);
         }
@@ -51,7 +51,7 @@ public class Demo {
     private static void turnOnAllOneByOne(Color color) throws InterruptedException {
         for(ArrayList<String> list : grp){
             for(String id : list){
-                Boubou.SendColorLumio(color, id);
+                Light.TurnOnAllLumio(color, id);
                 Thread.sleep(500);
             }
         }
@@ -60,7 +60,7 @@ public class Demo {
 
     private static void shutdown() throws NameAlreadyUsedException {
 
-        Boubou.TurnOffLumio("all");
+        Light.TurnOffLumio("all");
     }
 
 
