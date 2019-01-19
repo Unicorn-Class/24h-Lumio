@@ -118,7 +118,7 @@ public class Animation {
         return true;
     }
 
-    public static boolean minus(int time, int delay, ) throws NameAlreadyUsedException {
+    public static boolean minus(int time, int delay ) throws NameAlreadyUsedException {
         Color red=Color.create("Red",255,0,0);
         int compt = 0;
         while(compt<time) {

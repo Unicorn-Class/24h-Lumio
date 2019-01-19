@@ -54,20 +54,20 @@ public class Color {
     }
 
     public boolean reduce(){
-        if(r>0 && g>0 && b>0){
-            r--;
-            g--;
-            b--;
+        if(r>10 && g>10 && b>10){
+            r-=10;
+            g-=10;
+            b-=10;
             return true;
         }
         return false;
     }
 
     public boolean increase(){
-        if(r<255 && g<255 && b<255){
-            r++;
-            g++;
-            b++;
+        if(r<245 && g<245 && b<245){
+            r+=10;
+            g+=10;
+            b+=10;
             return true;
         }
         return false;
