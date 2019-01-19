@@ -115,6 +115,7 @@ public class Remote{
     }
 
     public static void btnPushed(RemoteValues val) {
+        System.out.println();
         switch (val) {
 
         }
