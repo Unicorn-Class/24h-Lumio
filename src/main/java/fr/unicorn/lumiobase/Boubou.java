@@ -31,4 +31,7 @@ public class Boubou {
     public static boolean TurnOffLumio(String idLumio) throws NameAlreadyUsedException {
         return SendColorLumio(Color.create("off", 0, 0, 0), idLumio);
     }
+    public static boolean TurnOffLumio(String idLumio, Color c) throws NameAlreadyUsedException {
+        return SendColorLumio(c, idLumio);
+    }
 }
