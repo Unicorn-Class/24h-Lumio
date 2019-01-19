@@ -1,6 +1,8 @@
 package fr.unicorn.lumiobase.demo;
 
 import fr.unicorn.lumiobase.*;
+import fr.unicorn.lumiobase.sensors.Lumio;
+import org.eclipse.paho.client.mqttv3.MqttException;
 
 import java.util.ArrayList;
 
@@ -9,10 +11,10 @@ public class Demo {
     private static Color red, yellow, blue, purple, orange;
     private static ArrayList<ArrayList<String>> grp;
 
-    public static void main(String[] args) throws NameAlreadyUsedException, InterruptedException, NameAlreadyUsedException {
+    public static void main(String[] args) throws NameAlreadyUsedException, InterruptedException, NameAlreadyUsedException, MqttException {
         initColor();
         initGroup();
-
+/*
         shutdown();
         turnOnAllOneByOne(purple);
         shutdownAllGroup();
@@ -22,6 +24,19 @@ public class Demo {
         turnOnOneGroup(3, purple);
         turnOnOneGroup(4, red);
         glowOn(4, purple);
+        */
+
+
+        Lumio l=new Lumio();
+        Color c = Color.create("myColor", 255,255,255);
+        while(true){
+            System.out.println(255-(int)(l.getDistance().distance*159));
+            c.setR(255-(int)(l.getDistance().distance*159));
+            c.setG(255-(int)(l.getDistance().distance*159));
+            c.setB(255-(int)(l.getDistance().distance*159));
+            Light.TurnOnAllLumio(c, grp.get(4).get(0));
+            Thread.sleep(300);
+        }
 
     }
 
