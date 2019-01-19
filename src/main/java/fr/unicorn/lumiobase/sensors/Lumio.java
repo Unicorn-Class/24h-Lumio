@@ -6,10 +6,50 @@ import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 public class Lumio {
-    public Distance distance;
-    public Athmospheric ath;
-    public CapteurPushButton capteurPushButton;
-    public Remote remote;
+    private Distance distance;
+    private Athmospheric ath;
+    private CapteurPushButton capteurPushButton;
+    private Remote remote;
+
+    public Distance getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Distance distance) {
+        this.distance = distance;
+    }
+
+    public Athmospheric getAth() {
+        return ath;
+    }
+
+    public void setAth(Athmospheric ath) {
+        this.ath = ath;
+    }
+
+    public CapteurPushButton getCapteurPushButton() {
+        return capteurPushButton;
+    }
+
+    public void setCapteurPushButton(CapteurPushButton capteurPushButton) {
+        this.capteurPushButton = capteurPushButton;
+    }
+
+    public Remote getRemote() {
+        return remote;
+    }
+
+    public void setRemote(Remote remote) {
+        this.remote = remote;
+    }
+
+    public IMqttClient getClient() {
+        return client;
+    }
+
+    public void setClient(IMqttClient client) {
+        this.client = client;
+    }
 
     IMqttClient client = Connections.connectPublisher();
     public Lumio() throws MqttException{
