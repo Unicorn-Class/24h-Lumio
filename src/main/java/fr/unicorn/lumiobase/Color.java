@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Color {
+    
     public static List<Color> colors = new ArrayList<Color>();
 
     private String name;
@@ -42,6 +43,11 @@ public class Color {
 
     public int getB() {
         return b;
+    }
+
+    public int[] getRGB() {
+        int[] tab = {r, g, b};
+        return tab;
     }
 
     private static Color getExisting(int red, int green, int blue) {
