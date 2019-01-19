@@ -1,4 +1,4 @@
-package fr.unicorn.lumiobase.sensors;
+package fr.unicorn.lumiobase;
 
 import fr.unicorn.lumiobase.Led;
 
