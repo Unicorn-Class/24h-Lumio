@@ -3,13 +3,13 @@ package fr.unicorn.lumiobase;
 import org.eclipse.paho.client.mqttv3.*;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
 public class ColorPixel {
 
     public static void main(String args[]){
-        SendColorPixel(Color.create("Bizarre",255,100,85));
+        SendColorPixel(Color.create("Bizarre",255,100,85),2);
+        return;
     }
 
     public static boolean SendColorPixel(Color c, int idPixel){
