@@ -13,14 +13,14 @@ public class Demo {
         initColor();
         initGroup();
 
-       // shutdown();
-       // turnOnAllOneByOne(purple);
-       // shutdownAllGroup();
-       // turnOnOneGroup(0, orange);
-       // turnOnOneGroup(1, purple);
-        //turnOnOneGroup(2, orange);
-       // turnOnOneGroup(3, purple);
-      //  turnOnOneGroup(4, yellow);
+        shutdown();
+        turnOnAllOneByOne(purple);
+        shutdownAllGroup();
+        turnOnOneGroup(0, orange);
+        turnOnOneGroup(1, purple);
+        turnOnOneGroup(2, orange);
+        turnOnOneGroup(3, purple);
+        turnOnOneGroup(4, red);
         glowOn(4, purple);
 
     }

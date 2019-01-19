@@ -209,7 +209,7 @@ public class Animation {
 
     public static boolean rain(int time, int delay, String id_laumio) throws NameAlreadyUsedException,InterruptedException  {
         Color blue=Color.create("Blue",0,0,255);
-        Color white=Color.create("Blue",255,255,255);
+        Color white=Color.create("White",255,255,255);
         int compt = 0;
         while(compt<time) {
             compt += delay;

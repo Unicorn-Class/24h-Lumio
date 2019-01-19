@@ -44,9 +44,9 @@ public class testNico {
        // rainbow();
 
         log.fatal("Test Laumio");
-        testLumio();
+        //testLumio();
 
-        DisplayLedForLaumio(c1,"Laumio_88813D");
+       // DisplayLedForLaumio(c1,"Laumio_88813D");
 
         log.fatal("==========");
         log.fatal(" FIN TEST");
@@ -69,7 +69,12 @@ public class testNico {
     }*/
     public static void DisplayLedForLaumio(Color c,String idLaumio) {
         IMqttClient publisher = Connections.connectPublisher();
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 13; i++) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             JSONObject json = new JSONObject();
             json.put("command", "set_pixel");
             json.put("led", i);
@@ -144,7 +149,7 @@ public class testNico {
         Boubou.TurnOffLumio("all");
 
         log.fatal("\tAnimation arrow");
-        Animation.arrow(c1, 2000, 100, "all");
+        Animation.arrow(c1,  100, "all");
 
         log.fatal("\tPause de 0.5sec");
         Thread.sleep(500);
@@ -164,7 +169,7 @@ public class testNico {
         Boubou.TurnOffLumio("all");
 
         log.fatal("\tAnimation arrow");
-        Animation.arrow(c1, 2000, 50, "all");
+        Animation.arrow(c1,  50, "all");
 
         log.fatal("\tPause de 0.5sec");
         Thread.sleep(500);
