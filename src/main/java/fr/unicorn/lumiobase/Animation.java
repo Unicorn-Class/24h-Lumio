@@ -153,7 +153,7 @@ public class Animation {
         for (String s : idsLaumio) minus(time,delay,s);
     }
 
-    public static void rain(int delay, String id_laumio) throws NameAlreadyUsedException,InterruptedException  {
+    public static void rain(int delay, String idLaumio) throws NameAlreadyUsedException,InterruptedException  {
         Color blue=Color.create("Blue",0,0,255);
         Color grey=Color.create("Blue",105,105,105);
         Color white=Color.create("White",255,255,255);
@@ -203,6 +203,10 @@ public class Animation {
         for (String s : idsLaumio) rain(delay,s);
     }
 
+    public static void sun(int time,int delay, String idLaumio) throws NameAlreadyUsedException,InterruptedException  {
+        Color yellow=Color.create("Yellow",255,255,0);
+        glow(yellow,time,delay,idLaumio);
+    }
     public static boolean happy(int time, int delay, String id_laumio) throws NameAlreadyUsedException {
         Color green=Color.create("Green",0,255,0);
         int compt = 0;
