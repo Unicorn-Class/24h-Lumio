@@ -50,13 +50,34 @@ public class Color {
         return b;
     }
 
+    public void setR(int r) {
+        if(r>255){
+            r=255;
+        }
+        this.r = r;
+    }
+
+    public void setG(int g) {
+        if(g>255){
+            g=255;
+        }
+        this.g = g;
+    }
+
+    public void setB(int b) {
+        if(b>255){
+            b=255;
+        }
+        this.b = b;
+    }
+
     public int[] getRGB() {
         int[] tab = {r, g, b};
         return tab;
     }
 
     public boolean reduce(int vr, int vg, int vb){
-        if(r>10 || g>10 || b>10){
+        if(r>50 || g>50 || b>50){
             r-=vr;
             g-=vg;
             b-=vb;

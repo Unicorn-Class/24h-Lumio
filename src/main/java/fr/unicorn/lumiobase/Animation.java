@@ -92,26 +92,10 @@ public class Animation {
             glow(color,time,delay,s);
         }
     }
-    public static boolean plus(int time, int delay) throws NameAlreadyUsedException {
-        Color green=Color.create("Green",0,255,0);
-        int compt = 0;
-        while(compt<time) {
-            compt += delay;
-            try {
-                Thread.sleep(delay);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                return false;
-            }
-            Light.TurnOnRing(green, 1, "all");
-            Light.TurnOnRing(green, 1, "all");
-            Light.TurnOnRing(green, 2, "all");
-        }
-        return true;
-    }
 
     public static boolean plus(int time, int delay, String idLaumio) throws NameAlreadyUsedException {
         Color green=Color.create("Green",0,255,0);
+        Light.TurnOffLumio(idLaumio);
         int compt = 0;
         while(compt<time) {
             compt += delay;
@@ -135,6 +119,7 @@ public class Animation {
 
     public static boolean minus(int time, int delay, String idLaumio ) throws NameAlreadyUsedException {
         Color red=Color.create("Red",255,0,0);
+        Light.TurnOffLumio(idLaumio);
         int compt = 0;
         while(compt<time) {
             compt += delay;
@@ -153,58 +138,63 @@ public class Animation {
         for (String s : idsLaumio) minus(time,delay,s);
     }
 
-    public static void rain(int delay, String id_laumio) throws NameAlreadyUsedException,InterruptedException  {
+    public static void rain(int delay, String idLaumio) throws NameAlreadyUsedException,InterruptedException  {
         Color blue=Color.create("Blue",0,0,255);
-        Color grey=Color.create("Blue",105,105,105);
+        Color grey=Color.create("Grey",47,79,79);
         Color white=Color.create("White",255,255,255);
-            Light.TurnOffLumio(id_laumio);
+            Light.TurnOffLumio(idLaumio);
             //sky
             Light.TurnOnAllLumio(grey, "all");
             //First step of rain
-            Light.TurnOnPixel(blue,1,id_laumio);
+            Light.TurnOnPixel(blue,1,idLaumio);
             Thread.sleep(delay/2);
-            Light.TurnOnPixel(blue,10,id_laumio);
+            Light.TurnOnPixel(blue,10,idLaumio);
             Thread.sleep(delay/2);
-            Light.TurnOnPixel(blue,4,id_laumio);
+            Light.TurnOnPixel(blue,4,idLaumio);
             Thread.sleep(delay/2);
-            Light.TurnOnPixel(blue,7,id_laumio);
+            Light.TurnOnPixel(blue,7,idLaumio);
             Thread.sleep(delay);
 
             //second step of rain
-            Light.TurnOnPixel(blue,0,id_laumio);
+            Light.TurnOnPixel(blue,0,idLaumio);
             Thread.sleep(delay/2);
-            Light.TurnOnPixel(blue,11,id_laumio);
+            Light.TurnOnPixel(blue,11,idLaumio);
             Thread.sleep(delay/2);
-            Light.TurnOnPixel(blue,5,id_laumio);
+            Light.TurnOnPixel(blue,5,idLaumio);
             Thread.sleep(delay/2);
-            Light.TurnOnPixel(blue,6,id_laumio);
+            Light.TurnOnPixel(blue,6,idLaumio);
             Thread.sleep(delay);
 
             //Erase bottom
-            Light.TurnOnPixel(white,0,id_laumio);
+            Light.TurnOnPixel(white,0,idLaumio);
             Thread.sleep(delay/2);
-            Light.TurnOnPixel(white,11,id_laumio);
+            Light.TurnOnPixel(white,11,idLaumio);
             Thread.sleep(delay/2);
-            Light.TurnOnPixel(white,5,id_laumio);
+            Light.TurnOnPixel(white,5,idLaumio);
             Thread.sleep(delay/2);
-            Light.TurnOnPixel(white,6,id_laumio);
+            Light.TurnOnPixel(white,6,idLaumio);
 
             //Erase middle
-            Light.TurnOnPixel(white,1,id_laumio);
+            Light.TurnOnPixel(white,1,idLaumio);
             Thread.sleep(delay/2);
-            Light.TurnOnPixel(white,10,id_laumio);
+            Light.TurnOnPixel(white,10,idLaumio);
             Thread.sleep(delay/2);
-            Light.TurnOnPixel(white,4,id_laumio);
+            Light.TurnOnPixel(white,4,idLaumio);
             Thread.sleep(delay/2);
-            Light.TurnOnPixel(white,7,id_laumio);
+            Light.TurnOnPixel(white,7,idLaumio);
     }
 
     public static void rain(int delay, ArrayList<String> idsLaumio) throws NameAlreadyUsedException, InterruptedException {
         for (String s : idsLaumio) rain(delay,s);
     }
 
-    public static boolean happy(int time, int delay, String id_laumio) throws NameAlreadyUsedException {
+    public static void sun(int time,int delay, String idLaumio) throws NameAlreadyUsedException,InterruptedException  {
+        Color yellow=Color.create("Yellow",255,255,0);
+        glow(yellow,time,delay,idLaumio);
+    }
+    public static boolean happy(int time, int delay, String idLaumio) throws NameAlreadyUsedException {
         Color green=Color.create("Green",0,255,0);
+        Light.TurnOffLumio(idLaumio);
         int compt = 0;
         while(compt<time) {
             compt += delay;
@@ -214,12 +204,12 @@ public class Animation {
                 e.printStackTrace();
                 return false;
             }
-            Light.TurnOffLumio(id_laumio);
-            Light.TurnOnPixel(green,2,id_laumio);
-            Light.TurnOnPixel(green,3,id_laumio);
-            Light.TurnOnPixel(green,1,id_laumio);
-            Light.TurnOnPixel(green,12,id_laumio);
-            Light.TurnOnPixel(green,5,id_laumio);
+            Light.TurnOffLumio(idLaumio);
+            Light.TurnOnPixel(green,2,idLaumio);
+            Light.TurnOnPixel(green,3,idLaumio);
+            Light.TurnOnPixel(green,1,idLaumio);
+            Light.TurnOnPixel(green,12,idLaumio);
+            Light.TurnOnPixel(green,5,idLaumio);
 
         }
         return true;
@@ -229,7 +219,8 @@ public class Animation {
         for (String s : idsLaumio) happy(time,delay,s);
     }
 
-    public static boolean sad(int time, int delay, String id_laumio) throws NameAlreadyUsedException {
+    public static boolean sad(int time, int delay, String idLaumio) throws NameAlreadyUsedException {
+        Light.TurnOffLumio(idLaumio);
         Color red=Color.create("Red",255,0,0);
         int compt = 0;
         while(compt<time) {
@@ -240,12 +231,12 @@ public class Animation {
                 e.printStackTrace();
                 return false;
             }
-            Light.TurnOffLumio(id_laumio);
-            Light.TurnOnPixel(red,2,id_laumio);
-            Light.TurnOnPixel(red,3,id_laumio);
-            Light.TurnOnPixel(red,0,id_laumio);
-            Light.TurnOnPixel(red,11,id_laumio);
-            Light.TurnOnPixel(red,5,id_laumio);
+            Light.TurnOffLumio(idLaumio);
+            Light.TurnOnPixel(red,2,idLaumio);
+            Light.TurnOnPixel(red,3,idLaumio);
+            Light.TurnOnPixel(red,0,idLaumio);
+            Light.TurnOnPixel(red,11,idLaumio);
+            Light.TurnOnPixel(red,5,idLaumio);
 
         }
         return true;

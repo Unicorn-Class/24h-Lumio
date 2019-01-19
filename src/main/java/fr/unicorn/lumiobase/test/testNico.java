@@ -41,8 +41,19 @@ public class testNico {
        // testVictor2();
        // testRing();
        // rainbow();
-
-        log.fatal("Test Laumio");
+        log.fatal("Happy");
+        Animation.happy(2500,500,"Laumio_88813D");
+        log.fatal("sad");
+        Animation.sad(2500,500,"Laumio_88813D");
+        log.fatal("Plus");
+        Animation.plus(2500,500,"Laumio_88813D");
+        log.fatal("Minus");
+        Animation.minus(2500,500,"Laumio_88813D");
+        log.fatal("Rain");
+        Animation.rain(2500,"Laumio_88813D");
+        log.fatal("Sun");
+        Animation.sun(2500,500,"Laumio_88813D");
+        //log.fatal("Test Laumio");
         //testLumio();
 
        // DisplayLedForLaumio(c1,"Laumio_88813D");
@@ -66,6 +77,7 @@ public class testNico {
         System.out.println("\""+id[8-1]+"\"");
         System.out.println("\""+id[3-1]+"\"");
     }*/
+
     public static void DisplayLedForLaumio(Color c,String idLaumio) {
         IMqttClient publisher = Connections.connectPublisher();
         for (int i = 0; i < 13; i++) {
