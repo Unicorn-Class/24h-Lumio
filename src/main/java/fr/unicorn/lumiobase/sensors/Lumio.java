@@ -62,7 +62,6 @@ public class Lumio {
     }
 
 
-
     @Override
     public String toString() {
        return "Distance "+this.distance.distance+"\n" +
