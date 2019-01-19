@@ -7,10 +7,6 @@ import org.json.JSONObject;
 
 public class Boubou {
 
-    public static void main(String[] a) throws NameAlreadyUsedException {
-        SendColorLumio(Color.create("", 23, 45 ,123), "3");
-    }
-
     public static boolean SendColorLumio(Color c, String idLumio){
         IMqttClient publisher = Connections.connectPublisher();
 
