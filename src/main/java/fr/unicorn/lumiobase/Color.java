@@ -1,11 +1,11 @@
 package fr.unicorn.lumiobase;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Color {
     
-    public static List<Color> colors = new ArrayList<Color>();
+    public static Map<String, Color> colors = new HashMap<String, Color>();
 
     private String name;
     private int r;
@@ -17,10 +17,13 @@ public class Color {
         this.r = r;
         this.g = g;
         this.b = b;
-        colors.add(this);
+        colors.put(name, this);
     }
 
-    public static Color create (String name, int r, int g, int b) {
+    public static Color create (String name, int r, int g, int b) throws NameAlreadyUsedException {
+        if (colors.containsKey(name)) {
+            throw new NameAlreadyUsedException();
+        }
         Color c = Color.getExisting(r, g, b);
         if (c != null) {
             return c;
@@ -51,7 +54,7 @@ public class Color {
     }
 
     private static Color getExisting(int red, int green, int blue) {
-        for (Color c : colors ) {
+        for (Color c : colors.values() ) {
             if (red == c.getR() && green == c.getG() && blue == c.getB()) {
                 return c;
             }
