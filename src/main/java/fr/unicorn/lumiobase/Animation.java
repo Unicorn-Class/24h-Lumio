@@ -16,7 +16,7 @@ public class Animation {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                ColorPixel.SendColorPixel(rvb, Util.getIdPixel(line, column));
+                //ColorPixel.SendColorPixel(rvb, Util.getIdPixel(line, column));
             }
         }
     }
