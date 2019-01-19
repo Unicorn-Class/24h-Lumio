@@ -69,7 +69,8 @@ public class Animation {
         return true;
     }
 
-    public static boolean glow(Color color, int time, int delay) throws NameAlreadyUsedException {
+
+    public static boolean glow(Color color, int time, int delay, String idLaumio) throws NameAlreadyUsedException {
         int vr = color.getR()/10;
         int vg = color.getG()/10;
         int vb = color.getB()/10;
@@ -83,7 +84,7 @@ public class Animation {
                 e.printStackTrace();
                 return false;
             }
-            Boubou.SendColorLumio(color, "1");
+            Boubou.SendColorLumio(color, idLaumio);
 
             if(reduce){
                 if(!color.reduce(vr, vg, vb)){
@@ -98,33 +99,7 @@ public class Animation {
         return true;
     }
 
-    public static boolean glow(Color color, int time, int delay, String idLaumio){
-        int compt = 0;
-        boolean reduce = true;
-        while(compt<time){
-            compt+=delay;
-            try {
-                Thread.sleep(delay);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                return false;
-            }
-            Boubou.SendColorLumio(color,idLaumio);
-
-            if(reduce){
-                if(!color.reduce()){
-                    reduce = false;
-                }
-            }else{
-                if(!color.increase()){
-                    reduce = true;
-                }
-            }
-        }
-        return true;
-    }
-
-    public static void glow(Color color, int time, int delay, ArrayList<String> idsLaumio){
+    public static void glow(Color color, int time, int delay, ArrayList<String> idsLaumio) throws NameAlreadyUsedException {
         for (String s : idsLaumio) glow(color,time,delay,s);
     }
 
