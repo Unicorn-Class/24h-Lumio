@@ -1,4 +1,5 @@
 package fr.unicorn.lumiobase.models;
 
-public class Test {
+public class SetData {
+
 }
