@@ -21,16 +21,18 @@ public class Animation {
         }
     }
 
-    public static void verticalWipe(Color rvb, int delay){
+    public static boolean verticalWipe(Color rvb, int delay){
         for(int line=0 ; line < Util.NB_LINE ; line++){
             try {
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                return false;
             }
             //TODO uncomment this
             //ColorLine.SendColorLine(rvb, Util.getIdLine(line));
         }
+        return true;
     }
 
     public static boolean rainbow(){
@@ -46,6 +48,31 @@ public class Animation {
         } catch (MqttException e) {
             e.printStackTrace();
             return false;
+        }
+        return true;
+    }
+
+    public static boolean glow(Color color, int time, int delay){
+        int compt = 0;
+        boolean reduce = true;
+        while(compt<time){
+            compt+=delay;
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            Boubou.SendColorLumio(color, "all");
+            if(reduce){
+                if(!color.reduce()){
+                    reduce = false;
+                }
+            }else{
+                if(!color.increase()){
+                    reduce = true;
+                }
+            }
         }
         return true;
     }

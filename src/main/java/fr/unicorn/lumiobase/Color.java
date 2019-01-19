@@ -53,6 +53,26 @@ public class Color {
         return tab;
     }
 
+    public boolean reduce(){
+        if(r>0 && g>0 && b>0){
+            r--;
+            g--;
+            b--;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean increase(){
+        if(r<255 && g<255 && b<255){
+            r++;
+            g++;
+            b++;
+            return true;
+        }
+        return false;
+    }
+
     private static Color getExisting(int red, int green, int blue) {
         for (Color c : colors.values() ) {
             if (red == c.getR() && green == c.getG() && blue == c.getB()) {
