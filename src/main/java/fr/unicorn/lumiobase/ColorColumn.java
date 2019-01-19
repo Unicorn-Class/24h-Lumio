@@ -47,5 +47,6 @@ public class ColorColumn {
 
     public static void SendColorColumn(Color c, int idColumn, ArrayList<String> idsLumio){
         for (String s : idsLumio) SendColorColumn(c, idColumn, s);
+
     }
 }

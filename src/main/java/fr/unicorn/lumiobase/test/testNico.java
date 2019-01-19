@@ -3,15 +3,21 @@ package fr.unicorn.lumiobase.test;
 import fr.unicorn.lumiobase.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.eclipse.paho.client.mqttv3.IMqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.json.JSONObject;
 
 public class testNico {
 
+    //private static String[] id = {"Laumio_0FC168","Laumio_10805F","Laumio_88813D","Laumio_104F03","Laumio_D454DB","Laumio_CD0522","Laumio_0FBFBF","Laumio_107DA8","Laumio_10508F","Laumio_1D9486","Laumio_104A13"};
     private static final Logger log = LogManager.getRootLogger();
 
    // static Color c0;
     static Color c1;
     static Color c2;
     static Color c3;
+    static Color c4;
 
 
     public static void main(String[] args) throws NameAlreadyUsedException, InterruptedException {
@@ -19,6 +25,7 @@ public class testNico {
         c1 = Color.create("Rouge", 255, 0, 0);
         c2 = Color.create("Vert", 0, 255, 0);
         c3 = Color.create("Bleu", 0, 0, 255);
+        c4 = Color.create("Blanc", 255, 255, 255);
 
 
         log.fatal("============");
@@ -27,9 +34,12 @@ public class testNico {
         //test1();
        // testLED();
         //testVictor();
-        testGlow();
-        testVictor2();
-        testRing();
+        //testGlow();
+        //t();
+        testIdLumio();
+       // testVictor2();
+       // testRing();
+       // rainbow();
 
 
 
@@ -37,6 +47,66 @@ public class testNico {
         log.fatal(" FIN TEST");
         log.fatal("==========");
 
+    }
+
+   /* private static void t() {
+        System.out.println("\""+id[10-1]+"\"");
+        System.out.println("\""+id[11-1]+"\"");
+        System.out.println("\""+id[4-1]+"\"");
+        System.out.println("\""+id[9-1]+"\"");
+        System.out.println("\""+id[7-1]+"\"");
+        System.out.println("\""+id[2-1]+"\"");
+        System.out.println("\""+id[6-1]+"\"");
+        System.out.println("\""+id[1-1]+"\"");
+        System.out.println("\""+id[5-1]+"\"");
+        System.out.println("\""+id[8-1]+"\"");
+        System.out.println("\""+id[3-1]+"\"");
+    }*/
+
+
+    public static boolean rainbow(){
+
+        IMqttClient publisher = Connections.connectPublisher();
+
+
+        try {
+            publisher.subscribe("laumio/status/advertise", (topic, msg) -> {
+                byte[] payload = msg.getPayload();
+                String str = new String(payload);
+                System.out.println("NICOLAS ! = " + str);
+            });
+        } catch (MqttException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject json = new JSONObject();
+        json.put("command", "dis");
+        MqttMessage message = new MqttMessage();
+        message.setPayload(json.toString().getBytes());
+        try {
+            publisher.publish("laumio/all/name",message);
+        } catch (MqttException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+
+
+    }
+    private static void testIdLumio() throws InterruptedException {
+        for(int i = 0 ; i<ReadProperties.prop.getJSONArray("idLaumio").length(); i++){
+            System.out.println(i+" : "+ReadProperties.prop.getJSONArray("idLaumio").getString(i));
+            Boubou.SendColorLumio(c3,ReadProperties.prop.getJSONArray("idLaumio").getString(i));
+            Thread.sleep(500);
+        }
+    }
+
+    private static void testGlow() throws NameAlreadyUsedException, InterruptedException {
+       // log.fatal("\tEteindre");
+        //Boubou.TurnOffLumio("all");
+
+        log.fatal("\tLueur" + c2.getName() + " pendant 0.5 sec");
+        Animation.glow(c3, 7000, 75);
     }
 
     private static void testRing() throws NameAlreadyUsedException, InterruptedException {
@@ -55,7 +125,7 @@ public class testNico {
         Boubou.TurnOffLumio("all");
 
         log.fatal("\tAnimation arrow");
-        Animation.arrow(c1, 2000, 50, "all");
+        Animation.arrow(c1, 2000, 100, "all");
 
         log.fatal("\tPause de 0.5sec");
         Thread.sleep(500);
@@ -124,14 +194,6 @@ public class testNico {
 
         log.fatal("\tPause de 0.5sec");
         Thread.sleep(500);
-    }
-
-    private static void testGlow() throws NameAlreadyUsedException, InterruptedException {
-        log.fatal("\tEteindre");
-        Boubou.TurnOffLumio("all");
-
-        log.fatal("\tLueur" + c3.getName() + " pendant 5 sec");
-        Animation.glow(c3, 2000, 1);
     }
 
     public static void test1() throws NameAlreadyUsedException, InterruptedException {

@@ -24,6 +24,7 @@ public class ReadProperties {
 
     public static void main(String args[]) {
         System.out.println("prop.get(\"debug\") = " + prop.get("debug"));
+        System.out.println("prop.get(\"idLaumio\") = " + prop.get("idLaumio"));
         System.out.println("prop.getJSONObject(\"lumio\").get(\"NB_LINE\") = " + prop.getJSONObject("lumio").get("NB_LINE"));
         System.out.println("prop.getJSONObject(\"lumio\").get(\"idColumn\") = " + (int) prop.getJSONObject("lumio").getJSONArray("idColumn").getInt(0));
     }

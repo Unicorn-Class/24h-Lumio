@@ -1,5 +1,7 @@
 package fr.unicorn.lumiobase;
 
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,21 +55,21 @@ public class Color {
         return tab;
     }
 
-    public boolean reduce(){
-        if(r>10 && g>10 && b>10){
-            r-=10;
-            g-=10;
-            b-=10;
+    public boolean reduce(int vr, int vg, int vb){
+        if(r>10 || g>10 || b>10){
+            r-=vr;
+            g-=vg;
+            b-=vb;
             return true;
         }
         return false;
     }
 
-    public boolean increase(){
+    public boolean increase(int vr, int vg, int vb){
         if(r<245 && g<245 && b<245){
-            r+=10;
-            g+=10;
-            b+=10;
+            r+=vr;
+            g+=vg;
+            b+=vb;
             return true;
         }
         return false;

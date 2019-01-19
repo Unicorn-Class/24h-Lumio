@@ -69,29 +69,10 @@ public class Animation {
         return true;
     }
 
-    public static boolean rainbow(String idLaumio){
-
-        IMqttClient publisher = Connections.connectPublisher();
-
-        JSONObject json = new JSONObject();
-        json.put("command", "animate_rainbow");
-        MqttMessage message = new MqttMessage();
-        message.setPayload(json.toString().getBytes());
-        try {
-            publisher.publish("laumio/"+idLaumio+"/json",message);
-        } catch (MqttException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-
-    public static void rainbow(ArrayList<String> idsLaumio){
-        for (String s : idsLaumio) rainbow(s);
-    }
-
-
-    public static boolean glow(Color color, int time, int delay){
+    public static boolean glow(Color color, int time, int delay) throws NameAlreadyUsedException {
+        int vr = color.getR()/10;
+        int vg = color.getG()/10;
+        int vb = color.getB()/10;
         int compt = 0;
         boolean reduce = true;
         while(compt<time){
@@ -102,14 +83,14 @@ public class Animation {
                 e.printStackTrace();
                 return false;
             }
-            Boubou.SendColorLumio(color, "all");
+            Boubou.SendColorLumio(color, "1");
 
             if(reduce){
-                if(!color.reduce()){
+                if(!color.reduce(vr, vg, vb)){
                     reduce = false;
                 }
             }else{
-                if(!color.increase()){
+                if(!color.increase(vr, vg, vb)){
                     reduce = true;
                 }
             }
