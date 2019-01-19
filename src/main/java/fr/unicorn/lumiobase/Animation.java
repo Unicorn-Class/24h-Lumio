@@ -9,8 +9,8 @@ public class Animation {
 
 
     public static void colorWipe(Color rvb, int delay){
-        for(int line = 0 ; line<Util.NB_LINE ; line++){
-            for(int column = 0 ; column<Util.NB_COLUMN ; column++){
+        for(int line = 0 ; line< (int) ReadProperties.prop.getJSONObject("lumio").getInt("NB_LINE") ; line++){
+            for(int column = 0 ; column< (int) ReadProperties.prop.getJSONObject("lumio").getInt("NB_COLUMN") ; column++){
                 try {
                     Thread.sleep(delay);
                 } catch (InterruptedException e) {
@@ -21,8 +21,8 @@ public class Animation {
         }
     }
 
-    public static boolean verticalWipe(Color rvb, int delay){
-        for(int line=0 ; line < Util.NB_LINE ; line++){
+    public static void verticalWipe(Color rvb, int delay){
+        for(int line=0 ; line < ReadProperties.prop.getJSONObject("lumio").getInt("NB_LINE") ; line++){
             try {
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
