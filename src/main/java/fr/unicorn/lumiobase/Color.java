@@ -21,13 +21,13 @@ public class Color {
     }
 
     public static Color create (String name, int r, int g, int b) throws NameAlreadyUsedException {
-        if (colors.containsKey(name)) {
-            throw new NameAlreadyUsedException();
-        }
         Color c = Color.getExisting(r, g, b);
         if (c != null) {
             return c;
         } else {
+            if (colors.containsKey(name)) {
+                throw new NameAlreadyUsedException();
+            }
             return new Color(name, r, g, b);
         }
     }

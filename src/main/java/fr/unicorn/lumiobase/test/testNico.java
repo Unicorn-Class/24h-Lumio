@@ -28,7 +28,7 @@ public class testNico {
 
     }
 
-    public static void test1() throws NameAlreadyUsedException {
+    public static void test1() throws NameAlreadyUsedException, InterruptedException {
 
         //log.info("Data transmisssion finished !");
 

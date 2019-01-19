@@ -13,113 +13,113 @@ public class Remote{
         client.subscribe("remote/power/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.POWER);
+            if (str.equals("ON")) btnPushed(RemoteValues.POWER);
         });
         client.subscribe("remote/mode/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.MODE);
+            if (str.equals("ON")) btnPushed(RemoteValues.MODE);
         });
         client.subscribe("remote/mute/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.MUTE);
+            if (str.equals("ON")) btnPushed(RemoteValues.MUTE);
         });
         client.subscribe("remote/playp/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.PLAYP);
+            if (str.equals("ON")) btnPushed(RemoteValues.PLAYP);
         });
         client.subscribe("remote/prev/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.PREV);
+            if (str.equals("ON")) btnPushed(RemoteValues.PREV);
         });
         client.subscribe("remote/next/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.NEXT);
+            if (str.equals("ON")) btnPushed(RemoteValues.NEXT);
         });
         client.subscribe("remote/eq/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.EQ);
+            if (str.equals("ON")) btnPushed(RemoteValues.EQ);
         });
         client.subscribe("remote/minus/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.MINUS);
+            if (str.equals("ON")) btnPushed(RemoteValues.MINUS);
         });
         client.subscribe("remote/plus/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.PLUS);
+            if (str.equals("ON")) btnPushed(RemoteValues.PLUS);
         });
         client.subscribe("remote/chg/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.CHG);
+            if (str.equals("ON")) btnPushed(RemoteValues.CHG);
         });
         client.subscribe("remote/u_sd/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.U_SD);
+            if (str.equals("ON")) btnPushed(RemoteValues.U_SD);
         });
         client.subscribe("remote/0/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.NB_0);
+            if (str.equals("ON")) btnPushed(RemoteValues.NB_0);
         });
         client.subscribe("remote/1/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.NB_1);
+            if (str.equals("ON")) btnPushed(RemoteValues.NB_1);
         });
         client.subscribe("remote/2/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.NB_2);
+            if (str.equals("ON")) btnPushed(RemoteValues.NB_2);
         });
         client.subscribe("remote/3/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.NB_3);
+            if (str.equals("ON")) btnPushed(RemoteValues.NB_3);
         });
         client.subscribe("remote/4/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.NB_4);
+            if (str.equals("ON")) btnPushed(RemoteValues.NB_4);
         });
         client.subscribe("remote/5/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.NB_5);
+            if (str.equals("ON")) btnPushed(RemoteValues.NB_5);
         });
         client.subscribe("remote/6/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.NB_6);
+            if (str.equals("ON")) btnPushed(RemoteValues.NB_6);
         });
         client.subscribe("remote/7/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.NB_7);
+            if (str.equals("ON")) btnPushed(RemoteValues.NB_7);
         });
         client.subscribe("remote/8/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.NB_8);
+            if (str.equals("ON")) btnPushed(RemoteValues.NB_8);
         });
         client.subscribe("remote/9/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            if (str.equals("true")) btnPushed(RemoteValues.NB_9);
+            if (str.equals("ON")) btnPushed(RemoteValues.NB_9);
         });
 
     }
 
     public static void btnPushed(RemoteValues val) {
-        log.info("BTN PUSHED : "+val.toString());
+        System.out.println("BTN PUSHED : "+val.toString());
         switch (val) {
 
         }
