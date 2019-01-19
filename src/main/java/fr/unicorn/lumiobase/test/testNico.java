@@ -147,9 +147,6 @@ public class testNico {
         log.fatal("\tEteindre");
         Light.TurnOffLumio("all");
 
-        log.fatal("\tAnimation arrow");
-        Animation.arrow(c1,  100, "all");
-
         log.fatal("\tPause de 0.5sec");
         Thread.sleep(500);
     }
@@ -166,9 +163,6 @@ public class testNico {
 
         log.fatal("\tEteindre");
         Light.TurnOffLumio("all");
-
-        log.fatal("\tAnimation arrow");
-        Animation.arrow(c1,  50, "all");
 
         log.fatal("\tPause de 0.5sec");
         Thread.sleep(500);
@@ -198,7 +192,7 @@ public class testNico {
         Light.TurnOffLumio("all");
 
         log.fatal("\tAnimation rain");
-        Animation.rain(2000, 50, "all");
+        Animation.rain(50, "all");
 
         log.fatal("\tPause de 0.5sec");
         Thread.sleep(500);

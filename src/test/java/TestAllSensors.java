@@ -9,6 +9,7 @@ public class TestAllSensors {
     public static void main(String args[]) throws MqttException {
         //IMqttClient client = Connections.connectPublisher();
         Lumio l=new Lumio();
+        System.out.println(l);
        /* Remote.initRemote(client);
         Presence.initPresence(client);
         Athmospheric.initAtmospheric(client);

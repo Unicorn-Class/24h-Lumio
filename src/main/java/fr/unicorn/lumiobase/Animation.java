@@ -103,9 +103,9 @@ public class Animation {
                 e.printStackTrace();
                 return false;
             }
-            ColorRing.sendColorRing(green, 1);
-            ColorColumn.SendColorColumn(green,1);
-            ColorColumn.SendColorColumn(green,2);
+            Light.TurnOnRing(green, 1, "all");
+            Light.TurnOnRing(green, 1, "all");
+            Light.TurnOnRing(green, 2, "all");
         }
         return true;
     }
@@ -157,46 +157,46 @@ public class Animation {
         Color blue=Color.create("Blue",0,0,255);
         Color grey=Color.create("Blue",105,105,105);
         Color white=Color.create("White",255,255,255);
-            Boubou.TurnOffLumio(id_laumio);
+            Light.TurnOffLumio(id_laumio);
             //sky
-            ColorRing.sendColorRing(grey, 2);
+            Light.TurnOnAllLumio(grey, "all");
             //First step of rain
-            ColorPixel.SendColorPixel(blue,1,id_laumio);
+            Light.TurnOnPixel(blue,1,id_laumio);
             Thread.sleep(delay/2);
-            ColorPixel.SendColorPixel(blue,10,id_laumio);
+            Light.TurnOnPixel(blue,10,id_laumio);
             Thread.sleep(delay/2);
-            ColorPixel.SendColorPixel(blue,4,id_laumio);
+            Light.TurnOnPixel(blue,4,id_laumio);
             Thread.sleep(delay/2);
-            ColorPixel.SendColorPixel(blue,7,id_laumio);
+            Light.TurnOnPixel(blue,7,id_laumio);
             Thread.sleep(delay);
 
             //second step of rain
-            ColorPixel.SendColorPixel(blue,0,id_laumio);
+            Light.TurnOnPixel(blue,0,id_laumio);
             Thread.sleep(delay/2);
-            ColorPixel.SendColorPixel(blue,11,id_laumio);
+            Light.TurnOnPixel(blue,11,id_laumio);
             Thread.sleep(delay/2);
-            ColorPixel.SendColorPixel(blue,5,id_laumio);
+            Light.TurnOnPixel(blue,5,id_laumio);
             Thread.sleep(delay/2);
-            ColorPixel.SendColorPixel(blue,6,id_laumio);
+            Light.TurnOnPixel(blue,6,id_laumio);
             Thread.sleep(delay);
 
             //Erase bottom
-            ColorPixel.SendColorPixel(white,0,id_laumio);
+            Light.TurnOnPixel(white,0,id_laumio);
             Thread.sleep(delay/2);
-            ColorPixel.SendColorPixel(white,11,id_laumio);
+            Light.TurnOnPixel(white,11,id_laumio);
             Thread.sleep(delay/2);
-            ColorPixel.SendColorPixel(white,5,id_laumio);
+            Light.TurnOnPixel(white,5,id_laumio);
             Thread.sleep(delay/2);
-            ColorPixel.SendColorPixel(white,6,id_laumio);
+            Light.TurnOnPixel(white,6,id_laumio);
 
             //Erase middle
-            ColorPixel.SendColorPixel(white,1,id_laumio);
+            Light.TurnOnPixel(white,1,id_laumio);
             Thread.sleep(delay/2);
-            ColorPixel.SendColorPixel(white,10,id_laumio);
+            Light.TurnOnPixel(white,10,id_laumio);
             Thread.sleep(delay/2);
-            ColorPixel.SendColorPixel(white,4,id_laumio);
+            Light.TurnOnPixel(white,4,id_laumio);
             Thread.sleep(delay/2);
-            ColorPixel.SendColorPixel(white,7,id_laumio);
+            Light.TurnOnPixel(white,7,id_laumio);
     }
 
     public static void rain(int delay, ArrayList<String> idsLaumio) throws NameAlreadyUsedException, InterruptedException {
@@ -271,5 +271,5 @@ public class Animation {
         }
         return true;
     }
-    
+
 }
