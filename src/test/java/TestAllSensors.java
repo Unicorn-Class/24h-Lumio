@@ -15,7 +15,7 @@ public class TestAllSensors {
         Athmospheric.initAtmospheric(client);
         Distance.initDistance(client);
         for (int i = 1; i < 5; i++) {
-            CapteurPushButton.tappetCapteur(client,new Led(i,true), new PushButton(i));
+            CapteurPushButton.tappetCapteur(client,i);
         }*/
     }
 }
