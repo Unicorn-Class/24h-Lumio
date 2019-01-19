@@ -8,7 +8,7 @@ import java.util.UUID;
 public class ColorPixel {
 
     public static void main(String args[]){
-        SendColorPixel(Color.create("Bizarre",255,100,85),2);
+        SendColorPixel(Color.create("Bizarre",255,255,255),2);
         return;
     }
 
@@ -16,7 +16,7 @@ public class ColorPixel {
         String publisherId = UUID.randomUUID().toString();
         IMqttClient publisher = null;
         try {
-            publisher = new MqttClient("tcp://192.168.43.35:1883",publisherId);
+            publisher = new MqttClient("tcp://mpd.lan:1883",publisherId);
         } catch (MqttException e) {
             e.printStackTrace();
             return false;
