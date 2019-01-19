@@ -8,7 +8,7 @@ import static fr.unicorn.lumiobase.Connections.connectPublisher;
 public class TestRemote {
 
     public static void main(String args[]) throws MqttException {
-        IMqttClient client = connectPublisher(true);
+        IMqttClient client = connectPublisher();
         Remote.initRemote(client);
         MqttMessage message = new MqttMessage();
         message.setPayload("ON".getBytes());
