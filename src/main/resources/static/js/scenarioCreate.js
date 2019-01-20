@@ -37,7 +37,7 @@ function loadDiv() {
     var bg = document.getElementById("color").value;
     div.color = bg;
 
-    json.push(JSON.stringify(div));
+    json.push("{"+json.length+":"JSON.stringify(div)+"}");
 
     addDiv(title, p, bg);
 }
