@@ -146,11 +146,11 @@ public class Animation {
             Light.TurnOnAllLumio(color, idLaumio);
 
             if(reduce){
-                if(!color.reduce(vr, vg, vb)){
+                if(!color.reduce(vr, vg, vb, 200)){
                     reduce = false;
                 }
             }else{
-                if(!color.increase(vr, vg, vb)){
+                if(!color.increase(vr, vg, vb, 50)){
                     reduce = true;
                 }
             }
