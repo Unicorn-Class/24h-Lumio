@@ -41,3 +41,28 @@ function loadDiv() {
 
     addDiv(title, p, bg);
 }
+
+function sendData() {
+
+
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://localhost:8080/sendCreator",
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json",
+            "cache-control": "no-cache",
+            "Postman-Token": "6d776311-dd03-4050-80d1-fa4a8662cff8"
+        },
+        "processData": false,
+        "data": "{\"scenario\":["+json+"]}"
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+    });
+}
+
+
