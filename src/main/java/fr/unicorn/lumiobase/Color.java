@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Color {
-    
+
     public static Map<String, Color> colors = new HashMap<String, Color>();
 
     private String name;
@@ -83,8 +83,8 @@ public class Color {
                 '}';
     }
 
-    public boolean reduce(int vr, int vg, int vb){
-        if(r>50 || g>50 || b>50){
+    public boolean reduce(int vr, int vg, int vb, int lim){
+        if(r>lim || g>lim || b>lim){
             r-=vr;
             g-=vg;
             b-=vb;
@@ -93,8 +93,8 @@ public class Color {
         return false;
     }
 
-    public boolean increase(int vr, int vg, int vb){
-        if(r<245 && g<245 && b<245){
+    public boolean increase(int vr, int vg, int vb, int lim){
+        if(r<lim && g<lim && b<lim){
             r+=vr;
             g+=vg;
             b+=vb;

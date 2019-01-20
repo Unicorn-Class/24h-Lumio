@@ -57,10 +57,7 @@ public class Animation {
     }
 
 
-    public static boolean glow(Color color, int time, int delay, String idLaumio) throws NameAlreadyUsedException {
-        int vr = color.getR()/10;
-        int vg = color.getG()/10;
-        int vb = color.getB()/10;
+    public static boolean glow(Color color, int time, int delay, String idLaumio, int vr, int vg, int vb, int limL, int limH) throws NameAlreadyUsedException {
         int compt = 0;
         boolean reduce = true;
         while(compt<time){
@@ -74,16 +71,45 @@ public class Animation {
             Light.TurnOnAllLumio(color, idLaumio);
 
             if(reduce){
-                if(!color.reduce(vr, vg, vb)){
+                if(!color.reduce(vr, vg, vb, limL)){
                     reduce = false;
                 }
             }else{
-                if(!color.increase(vr, vg, vb)){
+                if(!color.increase(vr, vg, vb,limH)){
                     reduce = true;
                 }
             }
         }
         return true;
+    }
+    public static boolean heart(Color color, int time, int delay, String idLaumio, int vr, int vg, int vb, int limL, int limH) throws NameAlreadyUsedException {
+        int compt = 0;
+        boolean reduce = true;
+        while(compt<time){
+            compt+=delay;
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            Light.TurnOnAllLumio(color, idLaumio);
+
+            if(reduce){
+                if(!color.reduce(vr, vg, vb, limL)){
+                    reduce = false;
+                }
+            }else{
+                if(!color.increase(vr, vg, vb,limH)){
+                    reduce = true;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static void glow(Color color, int time, int delay, String idLaumio) throws NameAlreadyUsedException {
+        glow(color, time, delay, idLaumio, color.getR()/10, color.getG()/10, color.getB()/10, 50, 220);
     }
 
 
