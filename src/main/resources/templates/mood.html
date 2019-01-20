@@ -35,21 +35,21 @@
         <div class="row">
             <h2>Receiver</h2>
             <div class="input-field">
-                <select class="browser-default">
-                    <option value="Nicolas" selected>Nicolas</option>
-                    <option value="Victor">Victor</option>
-                    <option value="Senam">Senam</option>
-                    <option value="Elodie">Elodie</option>
-                    <option value="Axel">Axel</option>
+                <select class="browser-default"  placeholder="MyFriend" th:field="*{name}">
+                    <option th:value="Nicolas" selected th:text="Nicolas"></option>
+                    <option th:value="Victor" th:text="Victor"></option>
+                    <option th:value="Senam" th:text="Senam"></option>
+                    <option th:value="Elodie" th:text="Elodie"></option>
+                    <option th:value="Axel" th:text="Axel"></option>
                 </select>
             </div>
             <h2>Mood</h2>
             <div class="input-field">
                 <select class="browser-default">
-                    <option value="Happy" selected>Happy</option>
-                    <option value="Sad">Sad</option>
-                    <option value="Think">Think</option>
-                    <option value="Out">Out</option>
+                    <option th:value="Happy" selected th:text="Happy" ></option>
+                    <option th:value="Sad" th:text="Sad"></option>
+                    <option th:value="Think" th:text="Think"></option>
+                    <option th:value="Out" th:text="Out"></option>
                 </select>
             </div>
             <div class="col s4 m4 l4">
