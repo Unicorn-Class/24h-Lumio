@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 public class TestNico {
 
+    private static String idFinal = "";
     private static Color colorP[] = new Color[2];
     private static Integer choix[] = new Integer[2];
     private static Integer score[] = new Integer[2];
@@ -58,7 +59,22 @@ public class TestNico {
             changePers();
         }while(end());
         System.out.println("Player "+(2) +" ("+score[1]+") :");
-        System.out.println("Player "+(0) +" ("+score[0]+") :");
+        System.out.println("Player "+(1) +" ("+score[0]+") :");
+
+        displayEnd();
+    }
+
+    private static void displayEnd() {
+        if(score[1] == score[0]){
+            Light.TurnOnColumn(colorP[0],0,idFinal);
+            Light.TurnOnColumn(colorP[0],2,idFinal);
+            Light.TurnOnColumn(colorP[1],1,idFinal);
+            Light.TurnOnColumn(colorP[1],3,idFinal);
+        }else if(score[1]>score[0]){
+            Light.TurnOnAllLumio(colorP[1], idFinal);
+        }else{
+            Light.TurnOnAllLumio(colorP[0], idFinal);
+        }
     }
 
 
@@ -152,6 +168,8 @@ public class TestNico {
         Color c3 = Color.create("Blue", 0,0,255);
         Color c4 = Color.create("Purple", 165,0,255);
         Color c5 = Color.create("Green", 0,255,0);
+
+        idFinal = ReadProperties.prop.getJSONArray("idLaumio").getString(10);
 
         gridC.add(c1);
         gridC.add(c1);
