@@ -28,7 +28,11 @@ public class TestNico {
 
     private static boolean valid = false;
 
-    public static void main(String[] args) throws NameAlreadyUsedException, InterruptedException, MqttException {
+    public void main(String [] args) throws InterruptedException, NameAlreadyUsedException, MqttException {
+        game();
+    }
+
+    public static void game() throws NameAlreadyUsedException, InterruptedException, MqttException {
         init();
         initDisplay();
         Lumio l = new Lumio();

@@ -124,6 +124,7 @@ public class Meteo {
                 "Temp "+this.temp+"    " +
                 "Humidity "+this.humidity;
     }
+
     public static void main(String[] args){
         try {
             Meteo m=new Meteo("72000","fr");

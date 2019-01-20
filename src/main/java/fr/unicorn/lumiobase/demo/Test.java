@@ -16,7 +16,12 @@ public class Test {
     private static int persW = 3;
     private static int pers = 1;
     private static int use = 0;
+
+
     public static void main(String[] args) throws NameAlreadyUsedException {
+        game();
+    }
+    public static void game() throws NameAlreadyUsedException {
         init();
 
         Scanner sc = new Scanner(System.in);
