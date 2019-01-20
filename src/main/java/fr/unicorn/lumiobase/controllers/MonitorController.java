@@ -31,7 +31,7 @@ public class MonitorController {
     @GetMapping("/monitor")
     public String monitor(Model model) {
         int i=1;
-        List<AbsHumidity> absL = absHumidityRepository.findAll(new Sort(Sort.Direction.DESC, "id"));
+        List<AbsHumidity> absL = absHumidityRepository.findAll(new Sort(Sort.Direction.DESC, "date"));
         for (AbsHumidity ah : absL) {
             model.addAttribute("xAbsHum"+i, ah.getDate());
             model.addAttribute("yAbsHum"+i, ah.getValue());
@@ -63,6 +63,7 @@ public class MonitorController {
         for (Presence p : presL) {
             model.addAttribute("xPres"+i, p.getDate());
             model.addAttribute("yPres"+i, p.getValue());
+            System.out.println("p.getValue() = " + p.getValue());
             if ((i++) > 10) break;
         }
         i=1;
