@@ -57,10 +57,82 @@ public class Animation {
     }
 
 
-    public static boolean glow(Color color, int time, int delay, String idLaumio) throws NameAlreadyUsedException {
-        int vr = color.getR()/10;
-        int vg = color.getG()/10;
-        int vb = color.getB()/10;
+    public static boolean glow(Color color, int time, int delay, String idLaumio, int vr, int vg, int vb, int limL, int limH) throws NameAlreadyUsedException {
+        int compt = 0;
+        boolean reduce = true;
+        while(compt<time){
+            compt+=delay;
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            Light.TurnOnAllLumio(color, idLaumio);
+
+            if(reduce){
+                if(!color.reduce(vr, vg, vb, limL)){
+                    reduce = false;
+                }
+            }else{
+                if(!color.increase(vr, vg, vb,limH)){
+                    reduce = true;
+                }
+            }
+        }
+        return true;
+    }
+    public static boolean heart(Color color, int time, int delay, String idLaumio, int vr, int vg, int vb, int limL, int limH, int pause, int pause2) throws NameAlreadyUsedException {
+        int compt = 0;
+        boolean reduce = true;
+        while(compt<time){
+            compt+=delay;
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            Light.TurnOnAllLumio(color, idLaumio);
+
+            if(reduce){
+                if(!color.reduce(vr, vg, vb, limL)){
+                    reduce = false;
+                    compt+=pause;
+                    try {
+                        Thread.sleep(pause);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }else{
+                if(!color.increase(vr, vg, vb,limH)){
+                    reduce = true;
+                    try {
+                        Thread.sleep(pause2);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public static void glow(Color color, int time, int delay, String idLaumio) throws NameAlreadyUsedException {
+        glow(color, time, delay, idLaumio, color.getR()/10, color.getG()/10, color.getB()/10, 50, 220);
+    }
+
+
+    public static void glow(Color color, int time, int delay, ArrayList<String> idsLaumio) throws NameAlreadyUsedException {
+        for (String s : idsLaumio) {
+            glow(color,time,delay,s);
+        }
+    }
+    public static boolean glowReduce(Color color, int time, int delay, String idLaumio) throws NameAlreadyUsedException {
+        int vr = color.getR()/20;
+        int vg = color.getG()/20;
+        int vb = color.getB()/20;
         int compt = 0;
         boolean reduce = true;
         while(compt<time){
@@ -85,14 +157,6 @@ public class Animation {
         }
         return true;
     }
-
-
-    public static void glow(Color color, int time, int delay, ArrayList<String> idsLaumio) throws NameAlreadyUsedException {
-        for (String s : idsLaumio) {
-            glow(color,time,delay,s);
-        }
-    }
-
     public static boolean plus(int time, int delay, String idLaumio) throws NameAlreadyUsedException {
         Color green=Color.create("Green",0,255,0);
         Light.TurnOffLumio(idLaumio);

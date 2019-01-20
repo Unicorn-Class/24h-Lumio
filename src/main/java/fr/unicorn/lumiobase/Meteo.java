@@ -76,20 +76,47 @@ public class Meteo {
         this.temp_max = temp_max;
     }
 
-    public Meteo(String zip, String pays) throws ParseException, UnirestException {
+    public Meteo(String zip, String pays,String idLaumio) throws ParseException, UnirestException, NameAlreadyUsedException, InterruptedException {
         String key="6faae96326a861f899e0d72ad4d9210c";
 
         HttpResponse<JsonNode> resp= Unirest.get("http://api.openweathermap.org/data/2.5/weather?zip="+zip+","+pays+"&APPID="+key).asJson();
         JSONArray rs=resp.getBody().getObject().getJSONArray("weather");
-        this.feel=rs.getJSONObject(0).getString("main");
-
+        this.feel=rs.getJSONObject(0).getString("main").toLowerCase();
         JSONObject rs2=resp.getBody().getObject().getJSONObject("main");
+
         this.temp=rs2.getFloat("temp");
         this.pressure=rs2.getInt("pressure");
         this.humidity=rs2.getInt("humidity");
         this.temp_max=rs2.getFloat("temp_max");
         this.temp_min=rs2.getFloat("temp_min");
+        if(this.feel.contains("rain")){
+            System.out.println("rain");
+            AnimationMeteo.rain(1500,idLaumio);
 
+        }
+        else if(this.feel.contains("clear")){
+            System.out.println("clear");
+            AnimationMeteo.sun(2500,500,idLaumio);
+        }
+        else {
+            System.out.println("other");
+            AnimationMeteo.cloud(2500,500, idLaumio);
+        }
+    }
+
+    public Meteo(String zip, String pays) throws ParseException, UnirestException {
+        String key="6faae96326a861f899e0d72ad4d9210c";
+
+        HttpResponse<JsonNode> resp= Unirest.get("http://api.openweathermap.org/data/2.5/weather?zip="+zip+","+pays+"&APPID="+key).asJson();
+        JSONArray rs=resp.getBody().getObject().getJSONArray("weather");
+        this.feel=rs.getJSONObject(0).getString("main").toLowerCase();
+        JSONObject rs2=resp.getBody().getObject().getJSONObject("main");
+
+        this.temp=rs2.getFloat("temp");
+        this.pressure=rs2.getInt("pressure");
+        this.humidity=rs2.getInt("humidity");
+        this.temp_max=rs2.getFloat("temp_max");
+        this.temp_min=rs2.getFloat("temp_min");
     }
 
     public String toString(){
@@ -101,6 +128,10 @@ public class Meteo {
         try {
             Meteo m=new Meteo("72000","fr");
             System.out.print(m);
+            Meteo m2=new Meteo("90001","us");
+            System.out.print(m2);
+            Meteo m3=new Meteo("BN1","gb");
+            System.out.print(m3);
         }catch (UnirestException e){
 
         } catch (ParseException e) {

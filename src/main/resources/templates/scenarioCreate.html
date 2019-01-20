@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>UniLamp</title>
+    <meta name="description" content="UniLamp">
+    <meta name="author" content="Unicorn.class">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/materialize.css">
+    <link rel="stylesheet" href="../static/css/scenarioCreate.css">
+
+    <script src="../static/js/html5kellycolorpicker.min.js"></script>
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper teal darken-3">
+        <ul>
+            <li class="valign-wrapper"><a href="#"><img src="../static/img/logo.png" alt="Logo Uniflix" class="logo"></a></li>
+        </ul>
+        <span class="brand-logo center">Creator</span>
+    </div>
+</nav>
+
+<div class="notcontainer">
+    <div class="picker teal lighten-4">
+        <select class="browser-default">
+            <option>Toto</option>
+        </select>
+        <canvas id="picker"></canvas>
+        <input id="color" value="#54aedb">
+        <a class="waves-effect waves-light btn-large"><i class="material-icons left">add</i>Ajouter</a>
+    </div>
+    <div class="content">
+        <div class="divContainer">
+        </div>
+    </div>
+</div>
+
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue">
+        <i class="large material-icons">save</i>
+    </a>
+</div>
+
+    <script src="../static/js/materialize.js"></script>
+    <script src="../static/js/Chart.bundle.min.js"></script>
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/scenarioCreate.js"></script>
+
+    <script>
+        new KellyColorPicker({
+            place : 'picker', 
+            input : 'color'
+        });
+    </script>
+</body>
+</html>
