@@ -5,10 +5,14 @@ import fr.unicorn.lumiobase.Color;
 import fr.unicorn.lumiobase.NameAlreadyUsedException;
 
 public class Mood implements Runnable {
-    String name ="";
-    Color color;
-    String id = "";
+    public String name ="";
+    public Color color;
+    public String id = "";
 
+
+    public Mood(){
+        super();
+    }
     public Mood(String name, Color c){
         try {
             color = Color.create("test", 255, 255, 255);
