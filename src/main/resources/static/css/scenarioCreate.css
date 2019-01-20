@@ -4,12 +4,16 @@ nav {
     display: static;
 }
 
+html {
+    height: 100vh;
+}
 body {
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: baseline;
+    align-items: center;
 }
 
 .notcontainer {
@@ -17,8 +21,8 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: baseline;
-    align-items: baseline;
+    justify-content: flex-start;
+    align-items: center;
     margin: 0;
 }
 
@@ -32,10 +36,20 @@ body {
 }
 
 .content {
-    height: 100%;
-    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .logo {
     height: 48px;
+}
+
+.divContainer {
+    margin: 0;
+    background: black;
+    width: 80%;
+    height: 200px;
 }
