@@ -50,6 +50,25 @@ public class moodTest {
         System.out.println("start");
         glow();*/
     }
+    public static void mood(String lampId, int value) throws NameAlreadyUsedException {
+        init();
+        Scanner sc = new Scanner(System.in);
+        for(int j=0 ; j<4 ; j++) {
+
+            Light.TurnOffLumio(lampId);
+
+            moods.get(value).setIdBoule(lampId);
+            Mood m = moods.get(value);
+            m.heart(lampId);
+
+        }
+
+
+        /*
+        Light.TurnOffLumio(ReadProperties.prop.getJSONArray("idLaumio").getString(8));
+        System.out.println("start");
+        glow();*/
+    }
 
     private static void init() throws NameAlreadyUsedException {
         users.add("Nicolas");
