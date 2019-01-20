@@ -40,11 +40,18 @@ public class TestNico {
             for(tour=0 ; tour<2 ; tour++){
 
                 do{
-                    System.out.println("Choisir :");
+                    /**
+                     * Pour saisie au clavier
+                     */
+                    //System.out.println("Choisir :");
                     //msg = sc.nextInt();
                     //choix(msg);
+                    System.out.print("..");
                 }while(!valid || (tour==1 && cursor==choix[0]));
                 display();
+                Thread.sleep(1000);
+                valid = false;
+
                 choix[tour] = cursor;
             }
             verif(choix);
@@ -81,11 +88,11 @@ public class TestNico {
     }
 
     private static void display() {
-        valid = false;
         System.out.println(gridC.get(cursor).getName());
         Light.TurnOnAllLumio(gridC.get(cursor),grid.get(cursor));
     }
 
+    @Deprecated
     public static void choix(int msg) {
         if(msg==6 && cursor<grid.size()-1){
             hideCursor();
@@ -164,12 +171,132 @@ public class TestNico {
         colorP[0] = c4;
         colorP[1] = c5;
 
-        for(int i=0 ; i<gridC.size()-6 ; i++){
+        for(int i=0 ; i<gridC.size() ; i++){
             grid.add(ReadProperties.prop.getJSONArray("idLaumio").getString(i));
             gridF.add(false);
         }
 
 
+    }
+
+
+
+
+
+    public static void move(int nb){
+        hideCursor();
+        if(nb == 5){
+            valid= true;
+        }
+        switch(nb){
+            case 8:
+                switch (cursor){
+                    case 0 :
+                        cursor = 2;
+                        break;
+                    case 1 :
+                        cursor = 3;
+                        break;
+                    case 2 :
+                        cursor = 5;
+                        break;
+                    case 3 :
+                        cursor = 6;
+                        break;
+                    case 4 :
+                        cursor = 6;
+                        break;
+                    case 5 :
+                        cursor = 7;
+                        break;
+                    case 6 :
+                        cursor = 7;
+                        break;
+                    case 7 :
+                        cursor = 8;
+                        break;
+                }
+                break;
+            case 2:
+                switch (cursor){
+                    case 2 :
+                        cursor = 0;
+                        break;
+                    case 3 :
+                        cursor = 1;
+                        break;
+                    case 4 :
+                        cursor = 1;
+                        break;
+                    case 5 :
+                        cursor = 2;
+                        break;
+                    case 6 :
+                        cursor = 3;
+                        break;
+                    case 7 :
+                        cursor = 5;
+                        break;
+                    case 8 :
+                        cursor = 7;
+                        break;
+                    case 9 :
+                        cursor = 7;
+                        break;
+                }
+                break;
+            case 4:
+                switch (cursor){
+                    case 1 :
+                        cursor = 0;
+                        break;
+                    case 3 :
+                        cursor = 2;
+                        break;
+                    case 4 :
+                        cursor = 3;
+                        break;
+                    case 5 :
+                        cursor = 8;
+                        break;
+                    case 6 :
+                        cursor = 5;
+                        break;
+                    case 7 :
+                        cursor = 8;
+                        break;
+                    case 9 :
+                        cursor = 8;
+                        break;
+                }
+                break;
+            case 6:
+                switch (cursor){
+                    case 0 :
+                        cursor = 1;
+                        break;
+                    case 2 :
+                        cursor = 3;
+                        break;
+                    case 3 :
+                        cursor = 4;
+                        break;
+                    case 5 :
+                        cursor = 6;
+                        break;
+                    case 7 :
+                        cursor = 9;
+                        break;
+                    case 8 :
+                        cursor = 9;
+                        break;
+                }
+                break;
+            case 5 :
+                valid = true;
+                break;
+        }
+        displayCursor();
     }
 
 

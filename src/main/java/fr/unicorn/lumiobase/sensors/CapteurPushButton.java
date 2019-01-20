@@ -25,12 +25,12 @@ public class CapteurPushButton {
             System.out.println(str);
         });
 
-        client.subscribe("capteur_bp/switch/led" + num + "/state", (topic, msg) -> {
+   /*     client.subscribe("capteur_bp/switch/led" + num + "/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
             ledState[num] = (str == "ON") ? true : false;
             System.out.println(str);
-        });
+        });*/
 
         client.subscribe("capteur_bp/binary_sensor/bp" + num + "/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();

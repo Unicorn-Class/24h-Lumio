@@ -102,7 +102,11 @@ public class Remote{
             byte[] payload = msg.getPayload();
             String str = new String(payload);
             buttonState.put(RemoteValues.NB_2, (str=="ON")? true:false);
-            if (str.equals("ON")) btnPushed(RemoteValues.NB_2);
+            if (str.equals("ON")){
+                btnPushed(RemoteValues.NB_2);
+                System.out.println("DOWN !!");
+                TestNico.move(2);
+            }
         });
         client.subscribe("remote/3/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
@@ -115,7 +119,7 @@ public class Remote{
             String str = new String(payload);
             if (str.equals("ON")){
                 btnPushed(RemoteValues.NB_4);
-
+                System.out.println("LEFT !!");
                 TestNico.choix(4);
             }
         });
@@ -124,7 +128,8 @@ public class Remote{
             String str = new String(payload);
             if (str.equals("ON")){
                 btnPushed(RemoteValues.NB_5);
-                TestNico.choix(5);
+                System.out.println("OK !!");
+                TestNico.move(5);
             }
         });
         client.subscribe("remote/6/state", (topic, msg) -> {
@@ -132,8 +137,8 @@ public class Remote{
             String str = new String(payload);
             if (str.equals("ON")){
                 btnPushed(RemoteValues.NB_6);
-                System.out.println("BTN 6 !!");
-                TestNico.choix(6);
+                System.out.println("RIGHT !!");
+                TestNico.move(6);
             }
         });
         client.subscribe("remote/7/state", (topic, msg) -> {
@@ -147,6 +152,8 @@ public class Remote{
             String str = new String(payload);
             if (str.equals("ON")) {
                 btnPushed(RemoteValues.NB_8);
+                System.out.println("UP !!");
+                TestNico.move(8);
             }
         });
         client.subscribe("remote/9/state", (topic, msg) -> {
