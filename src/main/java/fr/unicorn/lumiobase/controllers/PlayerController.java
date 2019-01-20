@@ -45,6 +45,8 @@ public class PlayerController {
 
             f.execute();
         }
-        return (new PlayerController()).player(1, model);
+        model.addAttribute("msg","Scenario Launched :)");
+        return "player";
+        //return (new PlayerController()).player(1, model);
     }
 }
