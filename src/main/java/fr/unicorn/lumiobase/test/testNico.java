@@ -1,5 +1,6 @@
 package fr.unicorn.lumiobase.test;
 
+import com.mashape.unirest.http.exceptions.UnirestException;
 import fr.unicorn.lumiobase.*;
 import fr.unicorn.lumiobase.sensors.Lumio;
 import org.apache.logging.log4j.LogManager;
@@ -8,6 +9,8 @@ import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.json.JSONObject;
+
+import java.text.ParseException;
 
 public class testNico {
 
@@ -21,7 +24,7 @@ public class testNico {
     static Color c4;
 
 
-    public static void main(String[] args) throws NameAlreadyUsedException, InterruptedException, MqttException {
+    public static void main(String[] args) throws NameAlreadyUsedException, InterruptedException, MqttException, ParseException, UnirestException {
         //c0 = Color.create("Noir", 0, 0, 0);
         c1 = Color.create("Rouge", 255, 0, 0);
         c2 = Color.create("Vert", 0, 255, 0);
@@ -41,23 +44,31 @@ public class testNico {
        // testVictor2();
        // testRing();
        // rainbow();
-        log.fatal("Happy");
+        /*log.fatal("Happy");
         Animation.happy(2500,500,"Laumio_88813D");
         log.fatal("sad");
         Animation.sad(2500,500,"Laumio_88813D");
         log.fatal("Plus");
         Animation.plus(2500,500,"Laumio_88813D");
         log.fatal("Minus");
-        Animation.minus(2500,500,"Laumio_88813D");
-        log.fatal("Rain");
+        Animation.minus(2500,500,"Laumio_88813D");*/
+        /*log.fatal("Rain");
         AnimationMeteo.rain(2500,"Laumio_88813D");
         log.fatal("Sun");
         AnimationMeteo.sun(2500,500,"Laumio_88813D");
+        log.fatal("Cloud");
+        AnimationMeteo.cloud(2500,500,"Laumio_88813D");
         //log.fatal("Test Laumio");
         //testLumio();
-
+        */
        // DisplayLedForLaumio(c1,"Laumio_88813D");
-
+        Meteo m1=new Meteo("72000","fr","Laumio_88813D");
+        Thread.sleep(2000);
+        Light.TurnOffLumio("Laumio_88813D");
+        Meteo m2=new Meteo("90001","us","Laumio_88813D");
+        Thread.sleep(2000);
+        Light.TurnOffLumio("Laumio_88813D");
+        Meteo m3=new Meteo("BN1","gb","Laumio_88813D");
         log.fatal("==========");
         log.fatal(" FIN TEST");
         log.fatal("==========");
