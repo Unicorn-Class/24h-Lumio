@@ -1,7 +1,6 @@
 package fr.unicorn.lumiobase;
 
 import fr.unicorn.lumiobase.sensors.Lumio;
-import fr.unicorn.lumiobase.sensors.Presence;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -31,12 +30,12 @@ public class SpringApp {
         exec.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
-                temperatureHistory.add(lumioSensors.getAth().temperature);
+                /*temperatureHistory.add(lumioSensors.getAth().temperature);
                 pressureHistory.add(lumioSensors.getAth().pressure);
                 humidityHistory.add(lumioSensors.getAth().humidity);
                 abshumidityHistory.add(lumioSensors.getAth().absHumidity);
                 distanceHistory.add(lumioSensors.getDistance().distance);
-                presenceHistory.add(Presence.presence ? 1 : 0);
+                presenceHistory.add(Presence.presence ? 1 : 0);*/
             }
         }, 0, 5, TimeUnit.MINUTES);
     }

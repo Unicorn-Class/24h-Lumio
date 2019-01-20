@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UniLamp Remote</title>
+    <meta name="description" content="UniLamp">
+    <meta name="author" content="Unicorn.class">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/materialize.css">
+
+    <style>
+
+        .logo {
+            height: 48px;
+        }
+
+        nav {
+            height: 7vh;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper teal darken-3">
+        <ul>
+            <li class="valign-wrapper"><img src="img/logo.png" alt="Logo Uniflix" class="logo"></li>
+        </ul>
+        <a href="#" class="brand-logo center">Remote</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <h2>Laumio</h2>
+        <div class="col s12 m12 l12">
+            <div class="input-field">
+                <select class="browser-default">
+                    <option value="1" selected>Laumio 1</option>
+                    <option value="2">Laumio 2</option>
+                    <option value="3">Laumio 3</option>
+                    <option value="4">Laumio 4</option>
+                    <option value="5">Laumio 5</option>
+                    <option value="6">Laumio 6</option>
+                    <option value="7">Laumio 7</option>
+                    <option value="8">Laumio 8</option>
+                    <option value="9">Laumio 9</option>
+                    <option value="10">Laumio 10</option>
+                    <option value="all">All Laumios</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Couleur</h2>
+        <div class="col s4 m4 l4">
+            <div class="input-field">
+                <input id="r" type="number" class="validate">
+                <label for="r">R</label>
+            </div>
+        </div>
+        <div class="col s4 m4 l4">
+            <div class="input-field">
+                <input id="g" type="number" class="validate">
+                <label for="g">G</label>
+            </div>
+        </div>
+        <div class="col s4 m4 l4">
+            <div class="input-field">
+                <input id="b" type="number" class="validate">
+                <label for="b">B</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Send To Pixel Number</h2>
+        <div class="col s8 m8 l8">
+            <div class="input-field">
+                <input id="id" type="number" class="validate">
+                <label for="id">Pixel ID</label>
+            </div>
+        </div>
+        <div class="col s4 m4 l4">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+                <i class="material-icons right">check</i>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Fill Laumio</h2>
+        <div class="col s12 m12 l12">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+                <i class="material-icons right">check</i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="js/materialize.js"></script>
+<script src="js/jquery.min.js"></script>
+<script>
+
+</script>
+</body>
+</html>
