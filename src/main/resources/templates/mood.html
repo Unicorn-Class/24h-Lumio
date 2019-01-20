@@ -31,36 +31,36 @@
 </nav>
 
 <div class="container">
-    <form action="#" th:action="@{/addMood}" th:object="${mood}" method="post">
         <div class="row">
             <h2>Receiver</h2>
             <div class="input-field">
-                <select class="browser-default"  placeholder="MyFriend" th:field="*{idBoule}">
-                    <option th:value="Nicolas" selected th:text="Nicolas"></option>
-                    <option th:value="Victor" th:text="Victor"></option>
-                    <option th:value="Senam" th:text="Senam"></option>
-                    <option th:value="Elodie" th:text="Elodie"></option>
-                    <option th:value="Axel" th:text="Axel"></option>
+                <select class="browser-default"  placeholder="MyFriend">
+                    <option>Nicolas</option>
+                    <option>Victor</option>
+                    <option>Senam</option>
+                    <option>Elodie</option>
+                    <option>Axel</option>
                 </select>
             </div>
             <h2>Mood</h2>
             <div class="input-field">
-                <select class="browser-default"  placeholder="MyFriend" th:field="*{name}">
-                    <option th:value="Happy" selected th:text="Happy" ></option>
-                    <option th:value="Sad" th:text="Sad"></option>
-                    <option th:value="Think" th:text="Think"></option>
-                    <option th:value="Out" th:text="Out"></option>
+                <select class="browser-default"  placeholder="MyFriend">
+                    <option>Happy</option>
+                    <option>Sad</option>
+                    <option>Think</option>
+                    <option>Out</option>
                 </select>
             </div>
             <div class="col s4 m4 l4">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+                <button class="btn waves-effect waves-light" type="submit" onclick="sendData()">Valider
                     <i class="material-icons right">check</i>
                 </button>
             </div>
         </div>
-    </form>
 
+    </div>
     <script src="js/materialize.js"></script>
     <script src="js/jquery.min.js"></script>
+    <script src="js/mood.js"></script>
     
 </body>
