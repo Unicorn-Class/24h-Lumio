@@ -2,6 +2,9 @@ nav {
     height: 7vh;
     margin:0;
     display: static;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 11;
 }
 
 html {
@@ -22,21 +25,21 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     margin: 0;
-}
-
-.notcontainer div {
-    margin: 0;
+    z-index: 10;
+    padding-top: 60px;
 }
 
 .picker {
+    position: fixed;
     height: 100%;
     width: 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-items: center;
+    padding-top: 20px;
 }
 
 .content {
@@ -44,7 +47,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    margin: 35px 0 10px 45%;
+    width: 55%;
 }
 
 .logo {
@@ -52,10 +56,34 @@ body {
 }
 
 .divContainer {
-    margin: 0;
-    background: black;
-    width: 80%;
-    height: 200px;
+    width: 70%;
+    height: auto;
+}
+
+.divContainer > div {
+    margin-bottom: 15px;
+    width: 100%;
+    background: #7c4dff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.divContainer > div:first-child {
+    border-top-left-radius: 50px;
+}
+
+.divContainer > div:last-child {
+    border-bottom-right-radius: 50px;
+}
+
+.divContainer > div > h1 {
+    padding: 0; margin: 0;
+    width: 90%; text-align: center;
+    font-size: 1.2em;
 }
 select {
     margin: 10px;
