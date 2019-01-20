@@ -42,14 +42,13 @@ function loadDiv() {
     var bg = document.getElementById("color").value;
     div.color = bg;
 
-    json.push("{"+json.length+":"+JSON.stringify(div)+"}");
+    json.push("{"+json.length+":"JSON.stringify(div)+"}");
 
     addDiv(title, p, bg);
 }
 
 function sendData() {
 
-    if (json.length == 0) return;
 
 
     var settings = {

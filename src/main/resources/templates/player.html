@@ -21,7 +21,6 @@
 </nav>
 
 <div class="container">
-    <p th:text="${msg}"></p>
     <a th:each="sc : ${scenarios}" th:href="'play?id='+${sc.getId()}" th:text="'Play #'+${sc.getId()}" class="waves-effect waves-light btn-large"></a>
 </div>
 </body>
