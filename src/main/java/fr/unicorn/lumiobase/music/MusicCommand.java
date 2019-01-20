@@ -41,21 +41,24 @@ public class MusicCommand {
 
 
     public void initMusic(IMqttClient client) throws MqttException {
+        System.out.println("Marche "+getVol());
         client.subscribe("music/control/getstate", (topic, msg) -> {
+            System.out.println("Marche "+getVol());
             byte[] payload = msg.getPayload();
 
             String str = new String(payload);
             System.out.println(str);
         });
 
-        client.subscribe("music/control/getvol", (topic, msg) -> {
+        client.subscribe("music/control/getVol", (topic, msg) -> {
             byte[] payload = msg.getPayload();
 
             String str = new String(payload);
             System.out.println(str);
+            System.out.println("Marche "+getVol());
         });
 
-        client.subscribe("music/control/previous", (topic, msg) -> {
+        /*client.subscribe("music/control/previous", (topic, msg) -> {
             byte[] payload = msg.getPayload();
 
             String str = new String(payload);
@@ -88,7 +91,7 @@ public class MusicCommand {
 
             String str = new String(payload);
             System.out.println(str);
-        });
+        });*/
 
 
     }
