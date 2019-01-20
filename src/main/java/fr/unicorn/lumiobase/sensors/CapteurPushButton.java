@@ -1,15 +1,28 @@
 package fr.unicorn.lumiobase.sensors;
 
+import fr.unicorn.lumiobase.Color;
+import fr.unicorn.lumiobase.models.Buttons.LedState;
 import org.eclipse.paho.client.mqttv3.IMqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
+
+import java.util.Arrays;
 
 public class CapteurPushButton {
     private IMqttClient client;
 
     private boolean online = false;
 
+
     private boolean[] buttonState;
     private boolean[] ledState;
+
+    @Override
+    public String toString() {
+        return "CapteurPushButton{" +
+                "buttonState=" + Arrays.toString(buttonState) +
+                ", ledState=" + Arrays.toString(ledState) +
+                '}';
+    }
 
     public void tappetCapteur(IMqttClient client, int num) throws MqttException {
 

@@ -76,6 +76,13 @@ public class Color {
         return tab;
     }
 
+    @Override
+    public String toString() {
+        return "Color{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
     public boolean reduce(int vr, int vg, int vb){
         if(r>50 || g>50 || b>50){
             r-=vr;
