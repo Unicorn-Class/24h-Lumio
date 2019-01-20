@@ -25,7 +25,7 @@ public class SpringApp {
     public static void main(String args[]) throws MqttException {
         SpringApplication.run(SpringApp.class, args);
         SetData.setData();
-        Lumio l = new Lumio();
+       // Lumio l = new Lumio();
     }
 
 }

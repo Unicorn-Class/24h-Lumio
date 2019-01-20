@@ -12,6 +12,9 @@ public class moodTest {
     private static ArrayList<Mood> moods = new ArrayList<>();
 
     public static void main(String[] args) throws NameAlreadyUsedException {
+        mood();
+    }
+    public static void mood() throws NameAlreadyUsedException {
         init();
         Scanner sc = new Scanner(System.in);
         for(int j=0 ; j<4 ; j++) {

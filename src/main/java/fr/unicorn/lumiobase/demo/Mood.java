@@ -10,6 +10,10 @@ import javax.persistence.Id;
 
 @Entity
 public class Mood implements Runnable {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue
     public Long id;

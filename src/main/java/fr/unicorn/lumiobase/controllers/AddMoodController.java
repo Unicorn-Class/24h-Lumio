@@ -1,5 +1,8 @@
 package fr.unicorn.lumiobase.controllers;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+import fr.unicorn.lumiobase.Color;
+import fr.unicorn.lumiobase.NameAlreadyUsedException;
 import fr.unicorn.lumiobase.demo.Mood;
 import fr.unicorn.lumiobase.models.MoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class MoodController {
+public class AddMoodController {
     @Autowired
     MoodRepository moodRepository;
 
@@ -23,8 +26,7 @@ public class MoodController {
     @PostMapping("/addMood")
     public String greetingSubmit(@ModelAttribute Mood mood) {
         mood.setIdBoule(mood.idBoule);
-
-
+        mood.setName(mood.name);
         System.out.println(mood);
         moodRepository.save(mood);
         return "success";
