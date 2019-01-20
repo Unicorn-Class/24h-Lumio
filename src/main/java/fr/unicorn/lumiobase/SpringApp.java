@@ -23,8 +23,8 @@ public class SpringApp {
     public static ArrayList<Integer> presenceHistory = new ArrayList<Integer>();
 
     public static void main(String args[]) throws MqttException {
-        SetData.setData();
         SpringApplication.run(SpringApp.class, args);
+        SetData.setData();
         Lumio l = new Lumio();
     }
 
