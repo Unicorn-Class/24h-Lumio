@@ -172,4 +172,7 @@ public class Remote{
         }
     }
 
+    public static Map<RemoteValues, Boolean> getButtonState() {
+        return buttonState;
+    }
 }
