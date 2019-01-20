@@ -34,12 +34,12 @@ public class Music {
 
         public Music(int vol) throws MqttException{
             this.vol=vol;
-            this.stopMusic();
-            this.setVolMusic();
-            this.playMusic();
+           // this.stopMusic();
+            //this.setVolMusic();
+            //this.playMusic();
             //this.nextMusic();
             //this.previousMusic();
-            this.toggleMusic();
+            //this.toggleMusic();
         }
         public Music(){
 
