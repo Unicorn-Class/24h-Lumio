@@ -50,9 +50,9 @@ public class testNico {
         log.fatal("Minus");
         Animation.minus(2500,500,"Laumio_88813D");
         log.fatal("Rain");
-        Animation.rain(2500,"Laumio_88813D");
+        AnimationMeteo.rain(2500,"Laumio_88813D");
         log.fatal("Sun");
-        Animation.sun(2500,500,"Laumio_88813D");
+        AnimationMeteo.sun(2500,500,"Laumio_88813D");
         //log.fatal("Test Laumio");
         //testLumio();
 
@@ -204,7 +204,7 @@ public class testNico {
         Light.TurnOffLumio("all");
 
         log.fatal("\tAnimation rain");
-        Animation.rain(50, "all");
+        AnimationMeteo.rain(50, "all");
 
         log.fatal("\tPause de 0.5sec");
         Thread.sleep(500);
