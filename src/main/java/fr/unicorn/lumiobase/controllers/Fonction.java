@@ -56,8 +56,10 @@ public class Fonction {
     }
 
     public void setNom(String nom) {
-        if(!nom.equals("all")){
+        if(!nom.equals("All")){
             nom = ReadProperties.prop.getJSONArray("idLaumio").getString(Integer.parseInt(nom.split(" ")[1]));
+        } else {
+            nom = "all";
         }
         this.nom = nom;
     }

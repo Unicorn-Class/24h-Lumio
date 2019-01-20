@@ -33,7 +33,7 @@ public class PlayerController {
         {
             System.out.println("OUT : "+arr.get(i).toString());
             JSONObject o = (JSONObject) arr.get(i);
-
+            o = o.getJSONObject(""+i);
             Fonction f = new Fonction();
 
             f.setFct(o.getString("function"));
