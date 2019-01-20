@@ -9,7 +9,7 @@ public class CreatorController {
 
     @GetMapping("/creator")
     public String creator(Model model) {
-        return "creator";
+        return "scenarioCreate";
     }
 
 }
