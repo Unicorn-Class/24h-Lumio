@@ -13,6 +13,11 @@ public class MusicController {
     @Autowired
     MusicRepository musicRepository;
 
+    @PostMapping("/functionsMusic")
+    public String functions(@RequestBody String function, Model model) {
+        return "greatAnswer";
+    }
+
     @GetMapping("/musique")
     public String musique(Model model) {
         model.addAttribute("musique", new Music());
