@@ -26,12 +26,12 @@ public class SetData {
     public static void setData() {
         Random r = new Random();
         for (int i=0; i<15; i++) {
-            absHumidityRepository.save(new AbsHumidity(r.nextFloat()));
+/*            absHumidityRepository.save(new AbsHumidity(r.nextFloat()));
             distanceRepository.save(new Distance(r.nextFloat()));
             humidityRepository.save(new Humidity(r.nextFloat()));
             presenceRepository.save(new Presence(r.nextBoolean()));
             pressureRepository.save(new Pressure(r.nextFloat()));
-            temperatureRepository.save(new Temperature(r.nextFloat()));
+            temperatureRepository.save(new Temperature(r.nextFloat()));*/
         }
     }
 }
