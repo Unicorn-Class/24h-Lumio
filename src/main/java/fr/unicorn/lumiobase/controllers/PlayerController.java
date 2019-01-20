@@ -31,11 +31,17 @@ public class PlayerController {
         {
             System.out.println("OUT : "+arr.get(i).toString());
             JSONObject o = (JSONObject) arr.get(i);
-            switch (o.getString("function")) {
-                case "fill":
-                    System.out.println("FILL !");
-                    break;
-            }
+
+            Fonction f = new Fonction();
+
+            f.setFct(o.getString("function"));
+            f.setDuration(o.getInt("duration"));
+            f.setColor(o.getString("color"));
+            f.setId(o.getInt("id"));
+            f.setNom(o.getString("title"));
+
+
+            f.execute();
         }
         return "monitor";
     }
