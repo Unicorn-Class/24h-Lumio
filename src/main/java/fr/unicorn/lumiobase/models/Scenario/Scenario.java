@@ -12,6 +12,8 @@ public class Scenario {
     @Id @GeneratedValue private Long id;
     @Column(columnDefinition="text") private String json;
 
+    public Scenario() {}
+
     public Scenario(String json) {
         this.json = json;
     }

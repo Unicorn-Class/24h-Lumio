@@ -1,5 +1,10 @@
 var json =[];
 
+function selectfct() {
+    if (document.getElementById("fctSelect").value == "fill") document.getElementById("opt").style.display = 'none';
+    else document.getElementById("opt").style.display = 'block';
+}
+
 function addDiv (title, p, bg) {
 
     var tEl = document.createElement("h1");
