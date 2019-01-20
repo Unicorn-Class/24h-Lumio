@@ -42,7 +42,7 @@ public class Music {
             //this.toggleMusic();
         }
         public Music(){
-
+            this.vol=90;
         }
     public void stopMusic()throws MqttException {
         IMqttClient publisher = Connections.connectPublisher();

@@ -20,9 +20,10 @@ public class MusicController {
     }
 
     @PostMapping("/toggle")
-    public String toggleSubmit(@ModelAttribute Music music) throws MqttException {
-        music.stopMusic();
+    public String toggleSubmit(@ModelAttribute Music music,Model model) throws MqttException {
+        //model.addAttribute("toggle",music.playMusic())stopMusic();
         music.playMusic();
+
         return "success";
     }
    /* @PostMapping("/toggle")
