@@ -58,8 +58,8 @@ public class TestNico {
             verif(choix);
             changePers();
         }while(end());
-        System.out.println("Player "+(2) +" ("+score[1]+") :");
-        System.out.println("Player "+(1) +" ("+score[0]+") :");
+        System.out.println("Player "+(2) +" ("+score[1]+")");
+        System.out.println("Player "+(1) +" ("+score[0]+")");
 
         displayEnd();
     }

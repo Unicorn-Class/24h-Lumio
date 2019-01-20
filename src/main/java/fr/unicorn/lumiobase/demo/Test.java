@@ -10,40 +10,46 @@ import java.util.Scanner;
 public class Test {
     private static String[][] gridId = new String[3][3];
     private static String idFinal = "";
-    private static Color colorP[] = new Color[2];
+    private static Color colorP[] = new Color[3];
     private static int[][] grid = new int[3][3];
     private static boolean end = false;
-    private static int persW = 0;
+    private static int persW = 3;
     private static int pers = 1;
+    private static int use = 0;
     public static void main(String[] args) throws NameAlreadyUsedException {
         init();
 
-       // Light.TurnOnAllLumio(colorP[persW-1],idFinal);
         Scanner sc = new Scanner(System.in);
         int x, y;
         do{
             do {
                 System.out.println("Player " + pers);
-                System.out.println("Saisir x :");
-                x = sc.nextInt();
-                System.out.println("Saisir y :");
-                y = sc.nextInt();
+                do {
+                    System.out.println("Saisir x :");
+                    x = sc.nextInt();
+                }while(x<0 && x>2);
+                do {
+                    System.out.println("Saisir y :");
+                    y = sc.nextInt();
+                }while(y<0 || y>2);
             }while(verifTurn(x, y));
 
             changePers();
 
         }while(verifEnd());
 
-        Light.TurnOnAllLumio(colorP[persW-1],idFinal);
+       // Light.TurnOnAllLumio(colorP[persW-1],idFinal);
     }
 
     private static void display(int x, int y) {
-        Light.TurnOnAllLumio(colorP[pers-1],gridId[x][y]);
+       // Light.TurnOnAllLumio(colorP[pers-1],gridId[x][y]);
     }
 
     private static boolean verifTurn(int x, int y) {
         if(grid[x][y] == 0){
             grid[x][y] = pers;
+            use++;
+            System.out.println(use);
             display(x, y);
             return false;
         }else{
@@ -55,8 +61,10 @@ public class Test {
     private static void changePers() {
         if(pers == 1){
             pers = 2;
+       //     Light.TurnOnAllLumio(colorP[pers-1],idFinal);
         }else{
             pers = 1;
+        //    Light.TurnOnAllLumio(colorP[pers-1],idFinal);
         }
     }
 
@@ -70,6 +78,8 @@ public class Test {
                 || same(grid[0][2], grid[1][2], grid[2][2])
 
                 || same(grid[0][0], grid[1][1], grid[2][2])
+
+                || use == 9
         ){
             System.out.println("END ! victory "+persW);
             return false;
@@ -92,6 +102,7 @@ public class Test {
         Color white = Color.create("Empty", 165,165,165);
         colorP[0] = Color.create("Purple", 165,0,255);
         colorP[1] = Color.create("Green", 255,165,0);
+        colorP[2] = white;
 
 
 
@@ -119,7 +130,7 @@ public class Test {
 
         for(int i=0 ; i<3 ; i++){
             for(int j=0 ; j<3 ; j++){
-                Light.TurnOnAllLumio(white,gridId[i][j]);
+         //       Light.TurnOnAllLumio(white,gridId[i][j]);
             }
         }
 
