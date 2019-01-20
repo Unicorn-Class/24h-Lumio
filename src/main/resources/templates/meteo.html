@@ -31,18 +31,18 @@
 </nav>
 
 <div class="container">
-    <form action="#" th:action="@{/addMeteo}" th:object="${meteo}" method="get">
+    <form action="#" th:action="@{/addMeteo}" th:object="${location}" method="get">
         <div class="row">
             <h2>Select the city</h2>
             <div class="col s8 m8 l8">
                 <div class="input-field">
-                    <input id="zip" type="text" class="validate">
+                    <input id="zip" type="text" class="validate" required th:field="*{zip}">
                     <label for="zip">Zip Code</label>
                 </div>
             </div>
             <div class="col s8 m8 l8">
                 <div class="input-field">
-                    <input id="pays" type="text" class="validate">
+                    <input id="pays" type="text" class="validate" required th:field="*{country}">
                     <label for="pays">Country Code</label>
                 </div>
             </div>
