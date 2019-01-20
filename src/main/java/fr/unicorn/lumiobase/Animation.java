@@ -118,7 +118,34 @@ public class Animation {
             glow(color,time,delay,s);
         }
     }
+    public static boolean glowReduce(Color color, int time, int delay, String idLaumio) throws NameAlreadyUsedException {
+        int vr = color.getR()/20;
+        int vg = color.getG()/20;
+        int vb = color.getB()/20;
+        int compt = 0;
+        boolean reduce = true;
+        while(compt<time){
+            compt+=delay;
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return false;
+            }
+            Light.TurnOnAllLumio(color, idLaumio);
 
+            if(reduce){
+                if(!color.reduce(vr, vg, vb)){
+                    reduce = false;
+                }
+            }else{
+                if(!color.increase(vr, vg, vb)){
+                    reduce = true;
+                }
+            }
+        }
+        return true;
+    }
     public static boolean plus(int time, int delay, String idLaumio) throws NameAlreadyUsedException {
         Color green=Color.create("Green",0,255,0);
         Light.TurnOffLumio(idLaumio);
