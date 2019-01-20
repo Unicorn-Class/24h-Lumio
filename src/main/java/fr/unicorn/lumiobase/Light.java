@@ -133,6 +133,12 @@ public class Light {
         }
     }
 
+    public static void TurnOnAllLumio(Color c, ArrayList<String> idLumio){
+        for (String id : idLumio) {
+            TurnOnAllLumio(c, id);
+        }
+    }
+
 
     /**
      * Turn off Lumio

@@ -1,6 +1,6 @@
 package fr.unicorn.lumiobase.sensors.remote;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+import fr.unicorn.lumiobase.demo.TestNico;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.eclipse.paho.client.mqttv3.IMqttClient;
@@ -113,20 +113,28 @@ public class Remote{
         client.subscribe("remote/4/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            buttonState.put(RemoteValues.NB_4, (str=="ON")? true:false);
-            if (str.equals("ON")) btnPushed(RemoteValues.NB_4);
+            if (str.equals("ON")){
+                btnPushed(RemoteValues.NB_4);
+
+                TestNico.choix(4);
+            }
         });
         client.subscribe("remote/5/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            buttonState.put(RemoteValues.NB_5, (str=="ON")? true:false);
-            if (str.equals("ON")) btnPushed(RemoteValues.NB_5);
+            if (str.equals("ON")){
+                btnPushed(RemoteValues.NB_5);
+                TestNico.choix(5);
+            }
         });
         client.subscribe("remote/6/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            buttonState.put(RemoteValues.NB_6, (str=="ON")? true:false);
-            if (str.equals("ON")) btnPushed(RemoteValues.NB_6);
+            if (str.equals("ON")){
+                btnPushed(RemoteValues.NB_6);
+                System.out.println("BTN 6 !!");
+                TestNico.choix(6);
+            }
         });
         client.subscribe("remote/7/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
@@ -137,8 +145,9 @@ public class Remote{
         client.subscribe("remote/8/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
             String str = new String(payload);
-            buttonState.put(RemoteValues.NB_8, (str=="ON")? true:false);
-            if (str.equals("ON")) btnPushed(RemoteValues.NB_8);
+            if (str.equals("ON")) {
+                btnPushed(RemoteValues.NB_8);
+            }
         });
         client.subscribe("remote/9/state", (topic, msg) -> {
             byte[] payload = msg.getPayload();
