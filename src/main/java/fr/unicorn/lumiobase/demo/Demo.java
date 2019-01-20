@@ -23,8 +23,9 @@ public class Demo {
         turnOnOneGroup(2, orange);
         turnOnOneGroup(3, purple);
         turnOnOneGroup(4, red);
+        */
         glowOn(4, purple);
-*/
+/**/
 
 
         Lumio l=new Lumio();

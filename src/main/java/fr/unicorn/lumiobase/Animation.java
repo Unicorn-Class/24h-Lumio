@@ -82,7 +82,7 @@ public class Animation {
         }
         return true;
     }
-    public static boolean heart(Color color, int time, int delay, String idLaumio, int vr, int vg, int vb, int limL, int limH) throws NameAlreadyUsedException {
+    public static boolean heart(Color color, int time, int delay, String idLaumio, int vr, int vg, int vb, int limL, int limH, int pause, int pause2) throws NameAlreadyUsedException {
         int compt = 0;
         boolean reduce = true;
         while(compt<time){
@@ -98,10 +98,21 @@ public class Animation {
             if(reduce){
                 if(!color.reduce(vr, vg, vb, limL)){
                     reduce = false;
+                    compt+=pause;
+                    try {
+                        Thread.sleep(pause);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }else{
                 if(!color.increase(vr, vg, vb,limH)){
                     reduce = true;
+                    try {
+                        Thread.sleep(pause2);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
