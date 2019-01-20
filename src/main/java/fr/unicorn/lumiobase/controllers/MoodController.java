@@ -26,6 +26,15 @@ public class MoodController {
 
     @PostMapping("/sendMood")
     public String sendMood(@RequestBody String json, Model model) {
+
+        try {
+            moodTest.mood((new JSONObject(json)).getString("idLumio"),
+                    Integer.parseInt((new JSONObject(json)).getString("mood"))
+
+            );
+        } catch (NameAlreadyUsedException e) {
+            e.printStackTrace();
+        }
         //(new JSONObject(json)).getString("idLumio");
         //(new JSONObject(json)).getString("mood");
         return "greatAnswer";

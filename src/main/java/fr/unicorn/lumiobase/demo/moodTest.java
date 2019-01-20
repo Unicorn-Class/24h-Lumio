@@ -53,15 +53,13 @@ public class moodTest {
     public static void mood(String lampId, int value) throws NameAlreadyUsedException {
         init();
         Scanner sc = new Scanner(System.in);
-        for(int j=0 ; j<4 ; j++) {
 
-            Light.TurnOffLumio(lampId);
+            Light.TurnOffLumio(id.get(users.indexOf(lampId)));
 
-            moods.get(value).setIdBoule(lampId);
+            moods.get(value).setIdBoule(id.get(users.indexOf(lampId)));
             Mood m = moods.get(value);
             m.heart(lampId);
 
-        }
 
 
         /*
