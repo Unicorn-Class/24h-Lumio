@@ -17,8 +17,10 @@ public class PlayerController {
     ScenarioRepository screpo;
 
     @GetMapping("/player")
-    public String player(Model model) {
+    public String player(@RequestParam(name="msg", required=false, defaultValue="0") long msg, Model model) {
         model.addAttribute("scenarios", screpo.findAll());
+        if (msg == 1) model.addAttribute("msg","Scenario Launched :)");
+        else model.addAttribute("msg","Please select a scenario ^^");
         return "player";
     }
 
@@ -43,6 +45,6 @@ public class PlayerController {
 
             f.execute();
         }
-        return "monitor";
+        return (new PlayerController()).player(1, model);
     }
 }
