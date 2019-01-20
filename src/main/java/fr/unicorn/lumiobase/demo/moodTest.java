@@ -36,9 +36,10 @@ public class moodTest {
             Mood m = moods.get(value);
 
             System.out.println("2");
-            Thread t = new Thread(new Mood(m.name, Color.create("j",m.r,m.g,m.b), m.idBoule));
+            //Thread t = new Thread(new Mood(m.name, Color.create("j",m.r,m.g,m.b), m.idBoule));
             System.out.println("3");
-            t.run();
+            //t.run();
+            m.heart(lampId);
             System.out.println("4");
 
         }
@@ -52,7 +53,7 @@ public class moodTest {
 
     private static void init() throws NameAlreadyUsedException {
         users.add("Nicolas");
-        id.add(ReadProperties.prop.getJSONArray("idLaumio").getString(7));
+        id.add(ReadProperties.prop.getJSONArray("idLaumio").getString(10));
         users.add("Victor");
         id.add(ReadProperties.prop.getJSONArray("idLaumio").getString(0));
         users.add("Senam");
