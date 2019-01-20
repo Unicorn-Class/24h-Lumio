@@ -23,4 +23,11 @@ function playPause() {
     sendData("playPause");
 }
 
+function next() {
+    sendData("next");
+}
+
+function previous() {
+    sendData("previous");
+}
 
