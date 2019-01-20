@@ -1,3 +1,5 @@
+var json =[];
+
 function addDiv (title, p, bg) {
 
     var tEl = document.createElement("h1");
@@ -15,15 +17,27 @@ function addDiv (title, p, bg) {
 }
 
 function loadDiv() {
-    var div = document.getElementsByClassName("picker")[0];
+    var div = new Object();
 
-    var title = div.getElementsByClassName("browser-default")[0].value;
+    var title = document.getElementsByClassName("browser-default")[0].value;
+    div.title = title;
 
-    var p = "Function : "+div.getElementsByClassName("browser-default")[1].value;
+    var f = document.getElementsByClassName("browser-default")[1].value;
+    div.function = f;
+    var p = "Function : "+f;
     p += "<br>";
-    p += "IdChoosed : ";
+    var id = document.getElementById('idChoosed').value;
+    div.id = id;
+    p += "IdChoosed : "+id;
     p += "<br>";
-    p += "Temps : ";
+    var d = document.getElementById("duration").value;
+    div.duration = d;
+    p += "Temps : "+d+" seconds";
 
+    var bg = document.getElementById("color").value;
+    div.color = bg;
 
+    json.push(JSON.stringify(div));
+
+    addDiv(title, p, bg);
 }
