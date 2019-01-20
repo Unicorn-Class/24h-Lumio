@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>UniLamp Mood</title>
@@ -31,33 +31,34 @@
 </nav>
 
 <div class="container">
-    <div class="row">
-        <h2>Receiver</h2>
-        <div class="input-field">
-            <select class="browser-default">
-                <option value="Nicolas" selected>Nicolas</option>
-                <option value="Victor">Victor</option>
-                <option value="Senam">Senam</option>
-                <option value="TiMout">TiMout</option>
-                <option value="Somni">Somni</option>
-            </select>
+    <form action="#" th:action="@{/addMood}" th:object="${mood}" method="post">
+        <div class="row">
+            <h2>Receiver</h2>
+            <div class="input-field">
+                <select class="browser-default">
+                    <option value="Nicolas" selected>Nicolas</option>
+                    <option value="Victor">Victor</option>
+                    <option value="Senam">Senam</option>
+                    <option value="Elodie">Elodie</option>
+                    <option value="Axel">Axel</option>
+                </select>
+            </div>
+            <h2>Mood</h2>
+            <div class="input-field">
+                <select class="browser-default">
+                    <option value="Happy" selected>Happy</option>
+                    <option value="Sad">Sad</option>
+                    <option value="Think">Think</option>
+                    <option value="Out">Out</option>
+                </select>
+            </div>
+            <div class="col s4 m4 l4">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Valider
+                    <i class="material-icons right">check</i>
+                </button>
+            </div>
         </div>
-        <h2>Mood</h2>
-        <div class="input-field">
-            <select class="browser-default">
-                <option value="Happy" selected>Happy</option>
-                <option value="Sad">Sad</option>
-                <option value="Think">Think</option>
-                <option value="Out">Out</option>
-            </select>
-        </div>
-        <div class="col s4 m4 l4">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Valider
-                <i class="material-icons right">check</i>
-            </button>
-        </div>
-    </div>
-
+    </form>
 
     <script src="js/materialize.js"></script>
     <script src="js/jquery.min.js"></script>
